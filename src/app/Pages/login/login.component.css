@@ -1,0 +1,39 @@
+/* Contenedor principal: centrar, ancho limitado */
+.login-container {
+    max-width: 360px;
+    /* Ajusta al ancho deseado */
+    margin: 80px auto;
+    /* Centra vertical y horizontalmente */
+    padding: 20px;
+    text-align: left;
+}
+
+/* Título */
+.login-container h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* Texto de registro */
+.register-link {
+    color: #6c63ff;
+    /* Un color púrpura aproximado */
+    cursor: pointer;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+/* 
+   Ajustes adicionales para inputs en error usando clases de Bootstrap.
+   Manejamos el borde rojo cuando se aplique la clase .is-invalid
+*/
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.85rem;
+}

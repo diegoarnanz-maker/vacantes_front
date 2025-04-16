@@ -1,0 +1,35 @@
+<div class="login-container">
+    <h2 class="text-center mb-4">Iniciar Sesión</h2>
+    <form [formGroup]="FormLogin" (ngSubmit)="getLogin()">
+
+     
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email"  placeholder="Email" class="form-control" formControlName="email">
+           
+            @if(checkControl('email', 'required')){
+            <p class="error">Campo requerido</p>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" id="password" placeholder="Contraseña" class="form-control" formControlName="password">
+            
+            @if(checkControl('password', 'required')){
+            <p class="error">Campo requerido</p>
+            }
+        </div>
+
+        <div class="d-grid">
+            <input type="submit" class="btn btn-primary" value="Entrar" [disabled]="!FormLogin.valid">
+        </div>
+
+        <div class="mt-4 text-center">
+            <small>
+                Si aún no tienes cuenta, <a [routerLink]="['/register']"  class="register-link">Regístrate aquí</a>
+            </small>
+        </div>
+    </form>
+</div>
+<!--Cuando solo se requiere la navegación sin lógica extra, RouterLink es la opción recomendada.-->

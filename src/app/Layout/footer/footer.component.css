@@ -1,0 +1,48 @@
+
+footer {
+    width: 100%;
+    background-color: #f8f9fa;
+    color: #343a40;
+    padding: 1rem 0;
+    bottom:0;
+}
+
+
+footer h5 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: #343a40;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    margin-right: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.footer-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    footer {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .footer-logo,
+    .social-icons {
+        display: none !important;
+    }
+}
