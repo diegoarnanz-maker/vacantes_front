@@ -23,7 +23,6 @@
     "bootstrap": "^5.3.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "vacantes-front-main": "file:",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {

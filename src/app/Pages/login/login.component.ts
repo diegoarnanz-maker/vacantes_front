@@ -15,8 +15,8 @@ import { LoginRequest } from '../../Models/Responses/login-request';
 export class LoginComponent {
 
 
-  authService = inject(AuthService);
-  router = inject(Router);
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
   FormLogin: FormGroup;
 
@@ -36,7 +36,7 @@ export class LoginComponent {
     }
 
     if (this.authService.obtenerRol() === 'EMPRESA') {
-      this.router.navigate(['empresa-home']);
+      this.router.navigate(['vacantes-company']);
     }
 
     if (this.authService.obtenerRol() === 'ADMON') {
@@ -56,7 +56,7 @@ export class LoginComponent {
       if (response.rol === 'CLIENTE') {
         this.router.navigate(['home']);
       } else if (response.rol === 'EMPRESA') {
-        this.router.navigate(['empresa-home']);
+        this.router.navigate(['vacantes-company']);
       } else if (response.rol === 'ADMON') {
         this.router.navigate(['admin-home']);
       }

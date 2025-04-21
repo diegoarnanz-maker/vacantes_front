@@ -1,0 +1,63 @@
+/* Contenedor de acciones: búsqueda a la izda, publicar a la dcha */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-group {
+    display: flex;
+    align-items: center;
+}
+
+
+.search-group .form-control {
+    max-width: 220px;
+}
+
+.new-button {
+    white-space: nowrap;
+}
+
+/* Fila de título centrado */
+.title-row {
+    text-align: center;
+}
+
+.title-row h2 {
+    font-weight: 600;
+    font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+
+.header-row {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 1rem;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    /* Ocultamos la columna “vacía” (la 2ª col) */
+    .header-row>.col-md-4:nth-child(2) {
+        display: none;
+    }
+
+    .search-group {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .search-group .form-control {
+        max-width: 200px;
+    }
+
+
+    .new-button {
+        width: 100%;
+        text-align: center;
+    }
+}

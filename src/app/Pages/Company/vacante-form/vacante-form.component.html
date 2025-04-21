@@ -1,1 +1,114 @@
-<p>vacante-form works!</p>
+<div class="form-wrapper">
+
+    <!-- Título dinámico -->
+    <h2 class="form-title text-center">
+        {{ tipo === 'Crear' ? 'Nueva vacante' : 'Modificar datos' }}
+    </h2>
+
+    <!-- Tarjeta que envuelve el formulario -->
+    <div class="form-card mx-auto p-4">
+
+        <form [formGroup]="formVacante" (ngSubmit)="getDatosForm()">
+
+            <!-- Nombre Vacante -->
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre Vacante:</label>
+                <input id="nombre" type="text" class="form-control" formControlName="nombre"/>
+                @if(checkControl('nombre','required')) {
+                <p class="error">Campo requerido</p>
+                }
+            </div>
+
+            <!-- Categoría -->
+            <div class="mb-3">
+                <label for="idCategoria" class="form-label">Id categoría:</label>
+                <input id="idCategoria" type="number" class="form-control" formControlName="idCategoria" min="1"/>
+                @if(checkControl('idCategoria','required')) {
+                <p class="error">Debes escoger una ID categoría</p>
+                }
+            </div>
+
+            <!-- Fecha -->
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha:</label>
+                <input id="fecha" type="date" class="form-control" formControlName="fecha" />
+                @if(checkControl('fecha','required')) {
+                <p class="error">Fecha requerida</p>
+                }
+            </div>
+
+            <!--Imagen-->
+
+            <div class="mb-3">
+                <label for="imagen" class="form-label">Imagen Vacante:</label>
+                <input id="imagen" type="text" class="form-control" formControlName="imagen"/>
+                @if(checkControl('imagen','required')) {
+                <p class="error">Imagen requerido</p>
+                }
+            </div>
+
+            <!-- Detalles -->
+            <div class="mb-3">
+                <label for="detalles" class="form-label">Detalles:</label>
+                <textarea id="detalles" rows="3" class="form-control" formControlName="detalles">
+                </textarea>
+            </div>
+
+            <!-- Descripción -->
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción:</label>
+                <textarea id="descripcion" rows="5" class="form-control" formControlName="descripcion">
+                </textarea>
+            </div>
+
+            <!-- Salario -->
+            <div class="mb-3">
+                <label for="salario" class="form-label">Salario:</label>
+                <input id="salario" type="number" class="form-control" formControlName="salario"/>
+                @if(checkControl('salario','required')) {
+                <p class="error">Campo requerido</p>
+                }
+                @if(checkControl('salario','min')) {
+                <p class="error">Debe ser ≥ 0</p>
+                }
+            </div>
+
+            <!-- Destacado -->
+            <div class="form-check mb-3">
+                <input id="destacado" type="checkbox" class="form-check-input" formControlName="destacado" />
+                <label for="destacado" class="form-check-label">
+                    Destacado
+                </label>
+            </div>
+
+
+            <!-- Estado -->
+          @if(tipo==="Modificar"){
+               
+                <div class="mb-3">
+                    <label for="estatus" class="form-label">Estado:</label>
+                    <select id="estatus" class="form-control" formControlName="estatus">
+                        <option value="" disabled>-- Selecciona estado --</option>
+                       
+                        <option *ngFor="let s of estatusOptions" [value]="s">
+                            {{ s }}
+                        </option>
+                    </select>
+                    @if(checkControl('estatus','required')) {
+                    <p class="error">Campo requerido</p>
+                    }
+                </div>
+            }
+            <!-- Botones -->
+            <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-secondary" [routerLink]="['/vacantes-company']">
+                    Volver
+                </button>
+                <button type="submit" class="btn btn-primary" [disabled]="formVacante.invalid">
+                    {{ tipo === 'Crear' ? 'Publicar' : 'Guardar' }}
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

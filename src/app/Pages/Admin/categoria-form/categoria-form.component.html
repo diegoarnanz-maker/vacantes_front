@@ -1,1 +1,50 @@
-<p>categoria-form works!</p>
+<!-- categoria-form.component.html -->
+<div class="form-wrapper">
+
+    <!-- Título dinámico -->
+    <h2 class="form-title text-center">
+        {{ tipo === 'Crear' ? 'Nueva categoría' : 'Modificar datos' }}
+    </h2>
+
+    <!-- Tarjeta gris que envuelve el formulario -->
+    <div class="form-card mx-auto">
+
+        <form [formGroup]="formCategoria" (ngSubmit)="getDatosForm()">
+
+            <!-- Nombre -->
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input id="nombre" type="text" class="form-control" formControlName="nombre" />
+                @if(checkControl('nombre', 'required')){
+                <p class="error">Campo requerido</p>
+                }
+                @if(checkControl('nombre', 'minlength')){
+                <p class="error">Debe tener min 3 carácteres</p>
+                }
+            </div>
+
+            <!-- Descripción -->
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción:</label>
+                <textarea id="descripcion" rows="5" class="form-control" formControlName="descripcion"></textarea>
+                @if(checkControl('descripcion', 'required')){
+                <p class="error">Campo requerido</p>
+                }
+                @if(checkControl('descripcion', 'required')){
+                <p class="error">Mínimo 10 carácteres</p>
+                }
+            </div>
+
+            <!-- Botones -->
+            <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-secondary" [routerLink]="['/categorias']">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn btn-primary" [disabled]="formCategoria.invalid">
+                    {{ tipo === 'Crear' ? 'Publicar' : 'Guardar' }}
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

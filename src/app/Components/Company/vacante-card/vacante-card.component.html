@@ -1,1 +1,22 @@
-<p>vacante-card works!</p>
+
+<div class="card">
+    <figure class="card__image-container">
+        <img class="card__image" [src]="miVacante.imagen" alt=" Imagen de {{ miVacante.nombre }}"/>
+        <figcaption class="card__company">{{ miVacante.nombreEmpresa }}</figcaption>
+    </figure>
+
+    <section class="card__body">
+        <h2 class="card__title">{{ miVacante.nombre }}</h2>
+        <h3 class="card__subtitle">{{ miVacante.nombreCategoria }}</h3>
+        <p class="card__details">
+            {{ miVacante.detalles }}
+        </p>
+        <p class="card__salary">Salario: {{ miVacante.salario}}</p>
+        @if(autenticado()){
+            <button class="card__button" [routerLink]="['/vacante-details/company/', miVacante.idVacante]" >Detalle</button>
+        }
+        @if(!autenticado()) {
+            <button class="card__button" [routerLink]="['/vacante-details/public', miVacante.idVacante]">Detalle</button>
+            }   
+    </section>
+</div>

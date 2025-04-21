@@ -1,1 +1,62 @@
-<p>vacante-list-company works!</p>
+<div class="container vacante-list my-5">
+
+    <!-- === HEADER: row de 3 cols === -->
+    <div class="row align-items-center mb-4 header-row">
+
+        
+        <div class="col-md-4 col-search">
+            <div class="search-group">
+                <input type="text" class="form-control" placeholder="Buscar por nombre" [(ngModel)]="filtroNombre" name="nombre" />
+                <button class="btn btn-danger ms-2" (click)="buscarPorNombre()">
+                    Enviar
+                </button>
+            </div>
+
+        </div>
+        
+        <div class="col-md-4 col-separador"></div>
+
+        
+        <div class="col-md-4 text-end">
+            <button class="btn btn-success new-button" [routerLink]="['/vacante-form/company']">
+                Publicar nueva categoría +
+            </button>
+        </div>
+    </div>
+
+    <!-- === TITULO debajo, centrado === -->
+    <div class="title-row mb-4 text-center">
+        <h2 class="mb-0">Vacantes</h2>
+    </div>
+
+    <!-- Lista de cards -->
+
+    @if (isLoading) {
+        <div class="text-center py-5">
+            Cargando vacantes…
+        </div>
+    }
+    @else if (errorMensaje) {
+        <div class="alert alert-danger">
+            {{errorMensaje}}
+        </div>
+    }
+    
+    @else if (vacantes.length) {
+        <div id="vacante" class="row justify-content-center row-cols-sm-2 g-4">
+            @for (vac of vacantes; track vac.idVacante) {
+            <div class="col-auto" id="vacantecard">
+                <app-vacante-card [miVacante]="vac"></app-vacante-card>
+            </div>
+            }
+        </div>
+    }
+    @else {
+    <p class="text-center py-5">
+        No hay vacantes publicadas.
+    </p>
+    }
+    
+    
+
+</div>

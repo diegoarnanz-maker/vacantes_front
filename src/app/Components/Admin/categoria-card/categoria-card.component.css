@@ -1,0 +1,47 @@
+.card-categoria {
+    
+    min-height: 270px;
+    width: 100%;
+    max-width: 280px;
+    /* opcional: tope si no quieres que sea más ancha */
+    margin: 0 auto;
+    /* centra dentro de la columna */
+    background-color: #f0f2f5;
+    border: 1px solid #c2c6cc;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-categoria:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-categoria .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-categoria .card-title {
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.card-categoria .card-subtitle {
+    font-size: 0.85rem;
+}
+
+.card-categoria .card-text {
+    font-size: 0.95rem;
+    color: #555;
+/* si el texto es muy largo, que haga scroll */
+    overflow: auto;
+    margin: 0.5rem 0;
+}
+
+.btn-sm {
+    min-width: 70px;
+}
