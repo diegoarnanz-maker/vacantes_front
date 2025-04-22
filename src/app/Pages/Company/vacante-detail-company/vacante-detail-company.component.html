@@ -1,1 +1,59 @@
-<p>vacante-detail-company works!</p>
+<div class="vacante-detail container my-4">
+    <div class="card p-4 mx-auto vacante-card–compact">
+
+        <!-- Cabecera: logo + empresa -->
+        <div class="d-flex align-items-center mb-3 pt-3 ps-3" >
+            <div class="image-wrapper me-2">
+                <img [src]="vacanteSelect.imagen" [alt]="'Logo de ' + vacanteSelect.nombreEmpresa"
+                    class="rounded-circle" />
+            </div>
+            <div class="ps-2">
+                <h5 class="mb-0 small">{{ vacanteSelect.nombreEmpresa }}</h5>
+                <small class="text-muted">{{ vacanteSelect.pais }}</small>
+            </div>
+        </div>
+
+        <!-- Título y categoría centrados -->
+        <div class="text-center mb-3 pt-3 pb-3" id="titulo">
+            <h2 class="h5 mb-0 fw-bold">{{ vacanteSelect.nombre }}</h2>
+            <div class="text-secondary small ">{{ vacanteSelect.nombreCategoria }}</div>
+        </div>
+
+        <!-- Fecha centrada -->
+        <p class="text-center text-muted small mb-3">
+            Fecha: {{ vacanteSelect.fecha }}
+        </p>
+
+        <!-- Detalles -->
+        <div class="mb-2">
+            <h6 class="small mb-1 fw-bold ps-3">Detalles:</h6>
+            <p class="small mb-2 ps-3">{{ vacanteSelect.detalles }}</p>
+        </div>
+
+        <!-- Descripción -->
+        <div class="mb-2">
+            <h6 class="small mb-1 fw-bold ps-3">Descripción:</h6>
+            <p class="small mb-2 ps-3">{{ vacanteSelect.descripcion }}</p>
+        </div>
+
+        <!-- Salario y estado -->
+        <div class="mb-3 small ps-3">
+            <span><strong>Salario:</strong> {{ vacanteSelect.salario }}</span><br />
+            <span><strong>Estado:</strong> {{ vacanteSelect.estatus }}</span>
+        </div>
+
+        <!-- Botones centrados -->
+        <div class="d-flex justify-content-center gap-2 pb-4">
+            <button class="btn btn-secondary btn-sm" [routerLink]="['/vacantes-company']">
+                Volver
+            </button>
+            <button class="btn btn-primary btn-sm" [routerLink]="['/vacante-form/company', vacanteSelect.idVacante]">
+                Editar
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="onELiminar()">
+                Eliminar
+            </button>
+        </div>
+
+    </div>
+</div>

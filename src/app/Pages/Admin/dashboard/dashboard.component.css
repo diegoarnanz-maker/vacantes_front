@@ -1,0 +1,43 @@
+
+
+/* Wrapper  para centrar todo el bloque */
+.cards-wrapper {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    
+}
+
+
+/* Estilos de las cards */
+.clickable-card {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+.clickable-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.clickable-card .card-body {
+    height: 220px;
+    /* fija la altura para centrar el contenido */
+}
+
+.clickable-card .card-title {
+    font-weight: 600;
+    color: #343a40;
+}
+
+.placeholder-img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background-color: #dee2e6;
+    border-radius: 8px;
+}

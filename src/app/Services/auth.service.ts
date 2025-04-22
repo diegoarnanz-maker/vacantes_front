@@ -34,6 +34,11 @@ export class AuthService {
           };
           
           localStorage.setItem('user', JSON.stringify(userInfo)); //Guardamos los datos obtenidos en el localStorage ('user), pero antes los transformamos a cadena de texto en formato JSON.
+          
+           // y guardamos las credenciales codificadas en el item basicAuth para usarlo en el interceptor que lo meterá en las cabeceras de las rutas
+            const basic = btoa(`${credenciales.email}:${credenciales.password}`);
+            localStorage.setItem('basicAuth', basic);
+        
         }),
         
         catchError((error) => {
@@ -60,6 +65,7 @@ export class AuthService {
 
   logout(): void{
     localStorage.removeItem('user');
+    localStorage.removeItem('basicAuth');
   }
 
   

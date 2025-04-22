@@ -1,5 +1,5 @@
 export interface CategoriaResponse {
-    id: number;     
+    idCategoria: number;     
     nombre: string;
     descripcion: string;
 }

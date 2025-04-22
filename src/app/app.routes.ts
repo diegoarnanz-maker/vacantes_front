@@ -15,33 +15,46 @@ import { EmpresaListComponent } from './Pages/Admin/empresa-list/empresa-list.co
 import { UsuariosDashboardComponent } from './Pages/Admin/usuarios-dashboard/usuarios-dashboard.component';
 import { companyGuard } from './Security/Guards/company.guard';
 import { adminGuard } from './Security/Guards/admin.guard';
+import { CategoriaFormComponent } from './Pages/Admin/categoria-form/categoria-form.component';
+import { VacanteDetailCompanyComponent } from './Pages/Company/vacante-detail-company/vacante-detail-company.component';
+import { VacanteFormComponent } from './Pages/Company/vacante-form/vacante-form.component';
+import { SolicitudFormComponent } from './Pages/User/solicitud-form/solicitud-form.component';
+import { VacanteDetailPublicComponent } from './Pages/vacante-detail-public/vacante-detail-public.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegistroComponent },
     { path: '', component: PublicHomeComponent },
     { path: 'home', component: PublicHomeComponent },
+    { path: 'vacante-details/public/:idVacante', component: VacanteDetailPublicComponent },
 
     //Flujo Usuario Cliente
     { path: 'solicitudes-user', component: SolicitudListUserComponent, canActivate:[authGuard] },
-    { path: 'miPerfil-user', component: MiPerfilUserComponent, canActivate:[authGuard] },
-    //Estos guards redirigirán al usuario no autenticado cuando este clique en mis solicitudes o mi perfil.
-
+    { path: 'miPerfil-user', component: MiPerfilUserComponent, canActivate: [authGuard] },
+    { path: 'solicitud-form/user', component: SolicitudFormComponent, canActivate:[authGuard] },
+    
 
     //Flujo Usuario Empresa
-    { path: 'vacantes-company', component: VacanteListCompanyComponent, canActivate:[companyGuard] },
+    { path: 'vacantes-company', component: VacanteListCompanyComponent, canActivate:[companyGuard] }, //Es el home de la empresa
     { path: 'miPerfil-company', component: MiPerfilCompanyComponent, canActivate:[companyGuard] },
     { path: 'solicitudes-company', component: SolicitudListCompanyComponent, canActivate:[companyGuard] },
 
-    
+    { path: 'vacante-details/company/:idVacante', component: VacanteDetailCompanyComponent, canActivate:[companyGuard] },
+    { path: 'vacante-form/company/:idVacante', component: VacanteFormComponent, canActivate: [companyGuard] }, //Para editar vacante existente
+    { path: 'vacante-form/company', component: VacanteFormComponent, canActivate: [companyGuard] },//para crear nueva vacante
+     
+
+
     //Flujo Usuario Admin
 
     { path: 'admin-home', component: DashboardComponent, canActivate:[adminGuard] },
     { path: 'categorias', component: CategoriaListComponent, canActivate:[adminGuard]  },
     { path: 'empresas', component: EmpresaListComponent, canActivate:[adminGuard]  },
     { path: 'usuarios', component: UsuariosDashboardComponent, canActivate:[adminGuard]  },
-    { path: 'miPerfil-admin', component: MiPerfilAdminComponent, canActivate:[adminGuard]  }, //Redirigir a mi perfil user?? para no duplicar??
-      
+    { path: 'miPerfil-admin', component: MiPerfilAdminComponent, canActivate:[adminGuard]  }, 
+    
+    { path: 'categorias/form', component: CategoriaFormComponent, canActivate:[adminGuard]  }, //Para crear nueva categoría
+    { path: 'categorias/form/:idCategoria', component: CategoriaFormComponent, canActivate:[adminGuard]  }, //Para editar categoría existente
 
 
 

@@ -1,1 +1,71 @@
-<p>categoria-list works!</p>
+<div class="container categoria-list my-5">
+
+    <!-- === HEADER: row de 3 cols === -->
+    <div class="row align-items-center mb-4 header-row">
+
+        <!-- Col 1: buscador -->
+        <div class="col-md-4 col-search">
+            <div class="search-group">
+                <input type="text" class="form-control" placeholder="Buscar por nombre" [(ngModel)]="filtroNombre"
+                    name="nombre" />
+                <button class="btn btn-danger ms-2" (click)="buscarPorNombre()">
+                    Enviar
+                </button>
+            </div>
+
+        </div>
+        <!-- Col 2: vacío, actúa de separador -->
+        <div class="col-md-4 col-separador"></div>
+
+        <!-- Col 3: botón alineado a la derecha de su col -->
+        <div class="col-md-4 text-end">
+            <button class="btn btn-success new-button" [routerLink]="['/categorias/form']">
+                Publicar nueva categoría +
+            </button>
+        </div>
+    </div>
+
+    <!-- === TITULO debajo, centrado === -->
+    <div class="title-row mb-4 text-center">
+        <h2 class="mb-0">Categorías</h2>
+    </div>
+
+    <!-- Lista de cards -->
+
+    @if (isLoading) {
+    <div class="text-center py-5">
+        Cargando vacantes…
+    </div>
+    }
+    @else if (errorMensaje) {
+    <div class="alert alert-danger">
+        {{errorMensaje}}
+    </div>
+    }
+
+
+    @else if (categorias.length) {
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        @for (cat of categorias; track cat.idCategoria) {
+        <div class="col">
+            <app-categoria-card [miCategoria]="cat" (eliminado)="onCategoriaEliminada($event)">
+            </app-categoria-card>
+        </div>}
+    </div>
+    }
+
+    @else{
+    <p class="text-center">
+        No hay categorías publicadas.
+    </p>
+    }
+    <!-- Paginación (No la he implementado porque se tiene que modificar el back y Anuar lo explicó pero con una API queya lo tenía hecho)-->
+    <!-- <nav aria-label="Paginación categorías" class="mt-5">
+        <ul class="pagination justify-content-center mb-0">
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+        </ul>
+    </nav> -->
+
+</div>

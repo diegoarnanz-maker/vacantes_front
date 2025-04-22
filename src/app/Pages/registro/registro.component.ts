@@ -15,8 +15,8 @@ import { RegisterResponse } from '../../Models/Responses/register-response';
 })
 export class RegistroComponent {
   
-  authService = inject(AuthService);
-  router = inject(Router);
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
   registroFrom: FormGroup;
 

@@ -13,8 +13,8 @@ import { catchError } from 'rxjs';
 export class NavbarCompartidoComponent {
 
 
-  authService = inject(AuthService);
-  router = inject(Router);
+  private authService = inject(AuthService);
+  private router = inject(Router);
   
   rolUsuario: string | null ;
 
