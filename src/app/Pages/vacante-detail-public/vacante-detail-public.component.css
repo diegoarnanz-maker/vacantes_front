@@ -11,9 +11,7 @@
 
 .vacante-detail .vacante-card–compact {
     max-width: 600px;
-    /* prueba 500px, 480px, 450px… hasta que te guste */
     width: 100%;
-    /* para que sea responsive hasta ese máximo */
     border: solid 2px #555555;
 }
 

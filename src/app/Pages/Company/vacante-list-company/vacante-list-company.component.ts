@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { VacanteService } from '../../../Services/vacante.service';
 import { VacanteResponse } from '../../../Models/Responses/vacante-response';
 import { FormsModule } from '@angular/forms';
+import { NgIf, NgFor } from '@angular/common'; // añado importacion para que no me de error
 import { VacanteCardComponent } from "../../../Components/Company/vacante-card/vacante-card.component";
 
 @Component({

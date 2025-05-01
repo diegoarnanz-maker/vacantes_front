@@ -1,0 +1,56 @@
+.container {
+
+    padding-top: 30px;
+}
+
+.vacante-detail .card {
+    background: #f5f7fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.vacante-detail .vacante-card–compact {
+    max-width: 600px;
+    width: 100%;
+    border: solid 2px #555555;
+}
+
+.vacante-detail .image-wrapper {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vacante-detail .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: solid 1px #9b9b9b;
+}
+
+#titulo {
+    background-color: #555555;
+    border: solid 2px #555555;
+    color: white;
+
+}
+
+.vacante-detail h2 {
+    font-size: 1.25rem;
+}
+
+.vacante-detail h5 {
+    font-size: 0.9rem;
+}
+
+.vacante-detail h6 {
+    font-size: 0.85rem;
+}
+
+.vacante-detail p,
+.vacante-detail small {
+    line-height: 1.3;
+}

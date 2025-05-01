@@ -1,1 +1,35 @@
-<p>solicitud-card-company works!</p>
+<div class="card solicitud-card mx-auto mb-4">
+    <div class="card-body d-flex flex-column">
+
+        <!-- Aquí centramos nombre + apellidos y fecha -->
+        <div class="text-center mb-3 solicitud-card__header" >
+            <h5 class="solicitud-card__usuario mb-1">
+                {{ miSolicitud.nombreUsuario }}
+                <span class="solicitud-card__apellidos">– {{ miSolicitud.apellidosUsuario }}</span>
+            </h5>
+            <p class="solicitud-card__fecha mb-0">
+                {{ miSolicitud.fecha }}
+            </p>
+        </div>
+
+        <!-- Comentarios -->
+        <div class="solicitud-card__comentarios flex-fill justify-content-center mb-3">
+            <p class="mb-0">
+                {{ miSolicitud.comentarios || '— Sin comentarios —' }}
+            </p>
+        </div>
+        <div class="small">
+
+            <p>
+                <span class="fw-bold">Estado:</span> {{estadoSolicitud}}
+            </p>
+
+        </div>
+
+        <!-- Botón -->
+        <button class="btn solicitud-card__btn-detalle align-self-center"
+            [routerLink]="['/solicitud-company/detail/', miSolicitud.idSolicitud]">
+            Detalle
+        </button>
+    </div>
+</div>

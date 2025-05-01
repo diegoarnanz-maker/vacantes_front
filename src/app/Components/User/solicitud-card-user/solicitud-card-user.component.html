@@ -1,1 +1,29 @@
-<p>solicitud-card-user works!</p>
+<div class="card">
+    <figure class="card__image-container">
+        <img class="card__image" [src]="miSolicitud.imagenVacante" alt="Imagen de {{ miSolicitud.nombreVacante }}" />
+        <figcaption class="card__company">
+            {{ miSolicitud.nombreEmpresa }}
+        </figcaption>
+    </figure>
+
+    <section class="card__body">
+        <h2 class="card__title">{{ miSolicitud.nombreVacante}}</h2>
+        <h3 class="card__subtitle">{{ miSolicitud.categoriaVacante }}</h3>
+        <p class="card__details">
+            {{ miSolicitud.detalleVacante }}
+        </p>
+        <p class="card__salary">
+            Salario: {{ miSolicitud.salarioVacante }}
+        </p>
+        <p class="card__estado">
+            Estado solicitud: {{ estadoSolicitud}}
+        </p>
+        <p class="card__fecha small">
+            Fecha solicitud: {{ miSolicitud.fecha }}
+        </p>
+
+        <button class="card__button" [routerLink]="['/solicitud-user/detail/', miSolicitud.idSolicitud]">
+            Detalle
+        </button>
+    </section>
+</div>

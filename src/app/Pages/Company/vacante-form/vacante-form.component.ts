@@ -29,7 +29,7 @@ export class VacanteFormComponent {
   constructor() {
     this.vacanteId = null;
 
-    this.estatusOptions = [ //Para que en el formulario salgan solo lasopciones del enum
+    this.estatusOptions = [ //Para que en el formulario salgan solo las opciones del enum
       Estatus.CREADA,
       Estatus.CUBIERTA,
       Estatus.CANCELADA
@@ -87,7 +87,7 @@ export class VacanteFormComponent {
   }
 
   getDatosForm() {
-    // Al haber controls deshabilitados, tomamos sólo los habilitados
+    
     const vacDataForm: VacanteRequest = this.formVacante.value as VacanteRequest;
 
     if (this.tipo === "Crear") {
