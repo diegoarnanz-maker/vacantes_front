@@ -1,1 +1,61 @@
-<p>solicitud-detail-company works!</p>
+
+<div class="solicitud-detail container my-4">
+    <div class="card p-4 mx-auto solicitud-card–compact">
+        <!-- Título y categoría de la vacante asociada -->
+        <div class="text-center mb-3 pt-3 pb-3" id="titulo">
+            <h2 class="h5 mb-0 fw-bold">{{ solicitudSelect.nombreVacante }}</h2>
+            <div class="text-secondary small">{{ solicitudSelect.categoriaVacante }}</div>
+        </div>
+
+        <!-- Fecha de la solicitud -->
+        <p class="text-center text-muted small mb-3">
+            Fecha de solicitud: {{ solicitudSelect.fecha }}
+        </p>
+
+        <!-- Datos del usuario solicitante -->
+        <div class="mb-3 ps-3">
+            <p class="mb-2 ">
+                <span class="fs-4 fw-bold">{{ solicitudSelect.nombreUsuario }} {{ solicitudSelect.apellidosUsuario }}</span>
+                <br>
+                <span class="small">Email: (<a href="mailto:{{ solicitudSelect.emailUsuario }}">{{ solicitudSelect.emailUsuario }}</a>)</span>
+            </p>
+        </div>
+
+        <!-- Comentarios -->
+        <div class="mb-2 ps-3">
+            <h6 class="small mb-1 fw-bold">Comentarios:</h6>
+            <p class="small mb-2">{{ solicitudSelect.comentarios }}</p>
+        </div>
+
+        <!-- Enlaces al archivo y al currículum -->
+        <div class="mb-2 ps-3">
+            <h6 class="small mb-1 fw-bold">Archivo adjunto:</h6>
+            <a [href]="solicitudSelect.archivo" target="_blank">{{ solicitudSelect.archivo }}</a>
+        </div>
+        <div class="mb-2 ps-3">
+            <h6 class="small mb-1 fw-bold">Currículum:</h6>
+            <a [href]="solicitudSelect.curriculum" target="_blank">{{ solicitudSelect.curriculum }}</a>
+        </div>
+
+
+        <!-- Estado y datos de la vacante -->
+        <div class="mb-3 small ps-3">
+            <span><strong>Estado:</strong> {{ estadoSolicitud}}</span><br />
+            <span><strong>Salario ofrecido:</strong> {{ solicitudSelect.salarioVacante}} $</span>
+        </div>
+
+
+        <!-- Botones de acción -->
+        <div class="d-flex justify-content-center gap-2 pb-4">
+            <button class="btn btn-secondary btn-sm" [routerLink]="['/solicitudes-company/', solicitudSelect.idVacante]">
+                Volver
+            </button>
+            <button class="btn btn-primary btn-sm" (click)="adjudicar()">
+                Adjudicar
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="rechazar()">
+                Rechazar
+            </button>
+        </div>
+    </div>
+</div>

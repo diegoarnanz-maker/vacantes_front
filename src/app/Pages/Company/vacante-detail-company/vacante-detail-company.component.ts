@@ -44,6 +44,7 @@ export class VacanteDetailCompanyComponent {
     if (confirm('Está seguro de que quiere eliminar esta vacante?')) {
       this.serviceVacante.deleteVacante(this.vacanteSelect.idVacante).subscribe({
         next: () => {
+          alert('Vacante eliminada (cancelada)');
           this.router.navigate(['vacantes-company'])
         },
         error: (err) => {

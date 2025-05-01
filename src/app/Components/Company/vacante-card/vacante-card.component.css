@@ -70,7 +70,6 @@
 
 .card__details {
     flex: 1 1 auto;
-        /* ocupa el espacio sobrante dentro de .card__body */
     min-height: 0;
     overflow-y: auto;
     font-size: 0.85rem;
@@ -100,4 +99,24 @@
 
 .card__button:hover {
     background: #4a41b1;
+}
+
+.card__button-container {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-top: auto;
+}
+
+
+.card__button-container .card__button {
+    flex: 1;
+    text-align: center;
+     max-width: 150px;  
+}
+#aqua {
+ background-color: rgb(111, 168, 149);
+}
+#aqua:hover {
+    background-color: rgb(103, 139, 127);
 }

@@ -20,6 +20,8 @@ import { VacanteDetailCompanyComponent } from './Pages/Company/vacante-detail-co
 import { VacanteFormComponent } from './Pages/Company/vacante-form/vacante-form.component';
 import { SolicitudFormComponent } from './Pages/User/solicitud-form/solicitud-form.component';
 import { VacanteDetailPublicComponent } from './Pages/vacante-detail-public/vacante-detail-public.component';
+import { SolicitudDetailCompanyComponent } from './Pages/Company/solicitud-detail-company/solicitud-detail-company.component';
+import { SolicitudDetailUserComponent } from './Pages/User/solicitud-detail-user/solicitud-detail-user.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -29,21 +31,22 @@ export const routes: Routes = [
     { path: 'vacante-details/public/:idVacante', component: VacanteDetailPublicComponent },
 
     //Flujo Usuario Cliente
-    { path: 'solicitudes-user', component: SolicitudListUserComponent, canActivate:[authGuard] },
-    { path: 'miPerfil-user', component: MiPerfilUserComponent, canActivate: [authGuard] },
-    { path: 'solicitud-form/user', component: SolicitudFormComponent, canActivate:[authGuard] },
-    
+    { path: 'solicitudes-user', component: SolicitudListUserComponent, canActivate: [authGuard] },
+    { path: 'solicitud-form/user/:idVacante', component: SolicitudFormComponent, canActivate:[authGuard] },
+    { path: 'solicitud-user/detail/:idSolicitud', component: SolicitudDetailUserComponent, canActivate:[authGuard] },
 
+    { path: 'miPerfil-user', component: MiPerfilUserComponent, canActivate: [authGuard] },
+    
     //Flujo Usuario Empresa
     { path: 'vacantes-company', component: VacanteListCompanyComponent, canActivate:[companyGuard] }, //Es el home de la empresa
     { path: 'miPerfil-company', component: MiPerfilCompanyComponent, canActivate:[companyGuard] },
-    { path: 'solicitudes-company', component: SolicitudListCompanyComponent, canActivate:[companyGuard] },
 
     { path: 'vacante-details/company/:idVacante', component: VacanteDetailCompanyComponent, canActivate:[companyGuard] },
     { path: 'vacante-form/company/:idVacante', component: VacanteFormComponent, canActivate: [companyGuard] }, //Para editar vacante existente
     { path: 'vacante-form/company', component: VacanteFormComponent, canActivate: [companyGuard] },//para crear nueva vacante
-     
-
+    
+    { path: 'solicitudes-company/:idVacante', component: SolicitudListCompanyComponent, canActivate: [companyGuard] }, //Lista de solicitudes de la vacante seleccionada
+    { path: 'solicitud-company/detail/:idSolicitud', component: SolicitudDetailCompanyComponent, canActivate: [companyGuard] },
 
     //Flujo Usuario Admin
 
@@ -56,10 +59,17 @@ export const routes: Routes = [
     { path: 'categorias/form', component: CategoriaFormComponent, canActivate:[adminGuard]  }, //Para crear nueva categoría
     { path: 'categorias/form/:idCategoria', component: CategoriaFormComponent, canActivate:[adminGuard]  }, //Para editar categoría existente
 
+  
 
 
-    { path: '**', component: PublicHomeComponent }
+  { path: '**', component: PublicHomeComponent }
+    
+
+
+
+
 ];
+
 
 
 

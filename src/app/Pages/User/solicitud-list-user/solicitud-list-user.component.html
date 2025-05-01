@@ -1,1 +1,41 @@
-<p>solicitud-list-user works!</p>
+<div class="container solicitudes-list my-5">
+
+    <!-- === TITULO debajo, centrado === -->
+    <div class="title-row mb-4 text-center">
+        <h2 class="mb-0 fw-bold">
+            Mis Solicitudes:
+        </h2>
+    </div>
+
+    <!-- Lista de cards -->
+    @if (isLoading) {
+    <div class="text-center py-5">
+        Cargando solicitudes…
+    </div>
+    }
+    @else if (errorMensaje) {
+    <div class="alert alert-danger">
+        {{ errorMensaje }}
+    </div>
+    }
+    @else if (solicitudes.length) {
+    <div id="solicitud" class="row justify-content-center row-cols-sm-2 g-4 mt-2">
+        @for (sol of solicitudes; track sol.idSolicitud) {
+        <div class="col-auto" id="solicitudcard">
+            <app-solicitud-card-user [miSolicitud]="sol"></app-solicitud-card-user>
+        </div>
+        }
+    </div>
+    }
+    @else {
+    <p class="text-center py-5">
+        No hay solicitudes publicadas.
+    </p>
+    }
+
+    <div class="d-flex justify-content-center mb-0 mt-4">
+        <button class="btn btn-secondary btn-sm " [routerLink]="['/home']">
+            Volver
+        </button>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+.container {
+    padding-top: 30px;
+}
+
+.solicitud-detail .card {
+    background: #f5f7fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.solicitud-detail .solicitud-card–compact {
+    max-width: 600px;
+    width: 100%;
+    border: solid 2px #555555;
+}
+
+#titulo {
+    background-color: #555555;
+    border: solid 2px #555555;
+    color: white;
+}
+
+.solicitud-detail h2 {
+    font-size: 1.25rem;
+}
+
+.solicitud-detail h5 {
+    font-size: 0.9rem;
+}
+
+.solicitud-detail h6 {
+    font-size: 0.85rem;
+}
+
+.solicitud-detail p,
+.solicitud-detail small {
+    line-height: 1.3;
+}
+.btn{
+    min-width: 80px;
+}

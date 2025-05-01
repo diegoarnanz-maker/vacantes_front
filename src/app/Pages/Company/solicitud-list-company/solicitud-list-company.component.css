@@ -1,0 +1,28 @@
+
+.solicitudes-list {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.search-group .form-control {
+    flex: 1;
+}
+
+
+.title-row h2 {
+    font-weight: 600;
+    color: #333;
+}
+.vacante-nombre {
+    color: #5382d4;
+    font-weight: 600;
+}
+
+
+@media (max-width: 576px) {
+
+    .header-row .col-search,
+    .header-row .text-end {
+        margin-bottom: 1rem;
+    }
+}

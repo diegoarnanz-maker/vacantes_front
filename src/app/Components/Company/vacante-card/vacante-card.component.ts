@@ -14,8 +14,20 @@ export class VacanteCardComponent {
   
   private authService = inject(AuthService);
 
+  public rolUsuario: string | null;
+  
+  constructor() {
+    this.rolUsuario = null;
+  }
+
   @Input() miVacante!: VacanteResponse;
 
+  ngOnInit(): void{
+    if (this.authService.isAuthenticated()) {
+      this.rolUsuario = this.authService.obtenerRol();
+    }
+  }
+  
   autenticado(): boolean{
     return this.authService.isAuthenticated();
 
