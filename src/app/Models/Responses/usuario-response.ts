@@ -5,4 +5,11 @@ export interface UsuarioResponse {
     rol: String;
     enabled: number;
     fechaRegistro: Date;
+
+    //Datos empresa si tienen una empresa asociada:
+    nombreEmpresa?: string;
+    cifEmpresa?: string;
+    direccionFiscal?: string;
+    paisEmpresa?: string;
+
 }

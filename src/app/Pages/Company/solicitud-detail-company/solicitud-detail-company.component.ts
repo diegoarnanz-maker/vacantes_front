@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { SolicitudResponse } from '../../../Models/Responses/solicitud-response';
 import { SolicitudService } from '../../../Services/solicitud.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-solicitud-detail-company',
@@ -37,34 +38,70 @@ export class SolicitudDetailCompanyComponent {
     });
   }
 
-  adjudicar() {
-    if (confirm('Está seguro de que quiere adjudicar esta solicitud?')) {
-      this.serviceSolicitud.adjudicarSolicitud(this.solicitudSelect.idSolicitud).subscribe({
-        next: () => {
-          this.router.navigate(['solicitudes-company/', this.solicitudSelect.idVacante])
-
-        },
-         error: (err) => {
+ adjudicar() {
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: '¿Quieres adjudicar esta solicitud?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, adjudicar',
+    cancelButtonText: 'Cancelar',
+    reverseButtons: true
+  }).then(result => {
+    if (result.isConfirmed) {
+      this.serviceSolicitud
+        .adjudicarSolicitud(this.solicitudSelect.idSolicitud)
+        .subscribe({
+          next: () => {
+            Swal.fire({
+              title: '¡Adjudicada!',
+              text: 'La solicitud ha sido adjudicada correctamente.',
+              icon: 'success',
+              confirmButtonText: 'Aceptar'
+            }).then(() => {
+              this.router.navigate(['solicitudes-company', this.solicitudSelect.idVacante]);
+            });
+          },
+          error: err => {
             console.error('Error al adjudicar:', err);
-            alert('No se pudo adjudicar la solicitud.');
+            Swal.fire('Error', 'No se pudo adjudicar la solicitud.', 'error');
           }
-      })
+        });
     }
-  }
+  });
+}
 
-  rechazar(){
-     if (confirm('Está seguro de que quiere rechazar esta solicitud?')) {
-      this.serviceSolicitud.rechazarSolicitud(this.solicitudSelect.idSolicitud).subscribe({
-        next: () => {
-          this.router.navigate(['solicitudes-company/', this.solicitudSelect.idVacante])
-
-        },
-         error: (err) => {
+rechazar() {
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: '¿Quieres rechazar esta solicitud?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, rechazar',
+    cancelButtonText: 'Cancelar',
+    reverseButtons: true
+  }).then(result => {
+    if (result.isConfirmed) {
+      this.serviceSolicitud
+        .rechazarSolicitud(this.solicitudSelect.idSolicitud)
+        .subscribe({
+          next: () => {
+            Swal.fire({
+              title: '¡Rechazada!',
+              text: 'La solicitud ha sido rechazada.',
+              icon: 'success',
+              confirmButtonText: 'Aceptar'
+            }).then(() => {
+              this.router.navigate(['solicitudes-company', this.solicitudSelect.idVacante]);
+            });
+          },
+          error: err => {
             console.error('Error al rechazar:', err);
-            alert('No se pudo rechazar la solicitud.');
+            Swal.fire('Error', 'No se pudo rechazar la solicitud.', 'error');
           }
-      })
+        });
     }
-  }
+  });
+}
 
 }

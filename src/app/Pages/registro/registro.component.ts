@@ -5,6 +5,7 @@ import { AuthService } from '../../Services/auth.service';
 import { RegisterRequest } from '../../Models/Responses/register-request';
 import { IUsuario } from '../../Models/Interfaces/iusuario';
 import { RegisterResponse } from '../../Models/Responses/register-response';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro',
@@ -32,21 +33,30 @@ export class RegistroComponent {
 
 
   getRegister() {
-    const registerUser: RegisterRequest = this.registroFrom.value as RegisterRequest;
+  const registerUser: RegisterRequest = this.registroFrom.value as RegisterRequest;
 
-    this.authService.registro(registerUser).subscribe({
-      next: (response: RegisterResponse) => {
-        this.router.navigate(['login'])
-        alert('Inicia sesión');
-      },
-      error: (error) => {
-         
-        alert("Credenciales incorrectas");
-        this.registroFrom.reset();
-      }
-    });
-    
-  }
+  this.authService.registro(registerUser).subscribe({
+    next: (response: RegisterResponse) => {
+      Swal.fire({
+        title: '¡Registro exitoso!',
+        text: 'Ya puedes iniciar sesión.',
+        icon: 'success',
+        confirmButtonText: 'Ir a login'
+      }).then(() => {
+        this.router.navigate(['login']);
+      });
+    },
+    error: () => {
+      Swal.fire({
+        title: 'Error',
+        text: 'No se pudo registrar. Verifica tus datos.',
+        icon: 'error',
+        confirmButtonText: 'Cerrar'
+      });
+      this.registroFrom.reset();
+    }
+  });
+}
 
 
 
