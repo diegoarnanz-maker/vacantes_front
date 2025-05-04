@@ -3,14 +3,21 @@
   <div class="card p-4 mx-auto solicitud-card–compact">
     <div class="d-flex align-items-center mb-3 pt-3 ps-3">
       <div class="image-wrapper me-2">
+        @if (solicitudSelect.imagenVacante) {
         <img
-          *ngIf="solicitudSelect.imagenVacante; else noImage"
           [src]="solicitudSelect.imagenVacante"
           [alt]="'Logo de ' + solicitudSelect.nombreEmpresa"
           class="rounded-circle"
         />
-        <ng-template #noImage></ng-template>
+        } @else {
+        <img
+          src="assets/img/placeholder.jpg"
+          alt="Imagen no disponible"
+          class="rounded-circle"
+        />
+        }
       </div>
+
       <div class="ps-2">
         <h5 class="mb-0 small">{{ solicitudSelect.nombreEmpresa }}</h5>
       </div>
