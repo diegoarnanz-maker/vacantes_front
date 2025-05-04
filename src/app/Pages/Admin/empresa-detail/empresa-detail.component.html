@@ -1,1 +1,68 @@
-<p>empresa-detail works!</p>
+<div class="container mt-4">
+  @if (empresa) {
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h4 class="card-title mb-3 text-center">
+            {{ empresa.nombreEmpresa }}
+          </h4>
+
+          <p><strong>CIF:</strong> {{ empresa.cif }}</p>
+          <p>
+            <strong>Dirección fiscal:</strong> {{ empresa.direccionFiscal }}
+          </p>
+          <p><strong>País:</strong> {{ empresa.pais }}</p>
+          <hr />
+          <p>
+            <strong>Responsable:</strong> {{ empresa.nombre }}
+            {{ empresa.apellidos }}
+          </p>
+          <p><strong>Email:</strong> {{ empresa.email }}</p>
+
+          <hr />
+          <h5 class="mt-4">
+            Vacantes publicadas: {{ empresa.vacantes.length }}
+          </h5>
+          <ul class="list-group mt-2">
+            @for (vacante of empresa.vacantes; track vacante.idVacante) {
+            <li class="list-group-item">
+              {{ vacante.nombre }} - {{ vacante.estatus }}
+            </li>
+            }
+          </ul>
+        </div>
+
+        <div class="card-footer d-flex justify-content-between px-4 py-3">
+          <button
+            class="btn btn-outline-primary btn-sm"
+            (click)="modificarEmpresa()"
+          >
+            Modificar
+          </button>
+          <button
+            class="btn btn-outline-danger btn-sm"
+            (click)="desactivarEmpresa()"
+          >
+            Desactivar empresa
+          </button>
+        </div>
+      </div>
+
+      <div class="text-center m-4">
+        <button
+          class="btn btn-outline-secondary btn-sm"
+          [routerLink]="['/empresas']"
+        >
+          Volver al listado
+        </button>
+      </div>
+    </div>
+  </div>
+  } @else {
+  <div class="text-center mt-5">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-3">Cargando empresa...</p>
+  </div>
+  }
+</div>

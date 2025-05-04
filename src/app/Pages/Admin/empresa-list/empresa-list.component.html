@@ -1,1 +1,62 @@
-<p>empresa-list works!</p>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="text-center m-0 flex-grow-1">Listado de Empresas</h2>
+    <div class="d-flex gap-2">
+      <button class="btn btn-success btn-sm" [routerLink]="['/empresas/form']">
+        Registrar Empresa
+      </button>
+      <button class="btn btn-secondary btn-sm" (click)="verDesactivadas()">
+        Ver desactivadas
+      </button>
+    </div>
+  </div>
+
+  @if (empresas.length > 0) {
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @for (empresa of empresas; track empresa.idEmpresa) {
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ empresa.nombreEmpresa }}</h5>
+          <p class="card-text mb-1">
+            <strong>Correo:</strong> {{ empresa.email }}
+          </p>
+          <p class="card-text mb-1">
+            <strong>Responsable:</strong> {{ empresa.nombre }}
+            {{ empresa.apellidos }}
+          </p>
+          <p class="card-text"><strong>País:</strong> {{ empresa.pais }}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <button
+            class="btn btn-outline-primary btn-sm"
+            (click)="verDetalle(empresa.idEmpresa)"
+          >
+            Ver detalles
+          </button>
+          <button
+            class="btn btn-outline-danger btn-sm"
+            (click)="desactivarEmpresa(empresa.idEmpresa)"
+          >
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  } @else {
+  <div class="text-center text-muted mt-5">
+    <p>No hay empresas registradas.</p>
+  </div>
+  }
+
+  <div class="m-4 text-center">
+    <button
+      class="btn btn-outline-secondary btn-sm"
+      [routerLink]="['/admin-home']"
+    >
+      Volver al panel
+    </button>
+  </div>
+</div>
