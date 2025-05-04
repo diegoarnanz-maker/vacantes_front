@@ -1,1 +1,29 @@
-<p>usuario-list works!</p>
+<div class="container">
+    <h2 class="align-items-center">Lista de usuarios</h2>
+  
+    <table class="table table-striped table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Email</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Enabled</th>
+          <th scope="col">Fecha de Registro</th>
+          <th scope="col">Rol</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (usuario of arrUsers; track usuario.nombre) {
+        <tr>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.apellidos }}</td>
+          <td>{{ usuario.enabled }}</td>
+          <td>{{ usuario.fechaRegistro }}</td>
+          <td>{{ usuario.rol }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  

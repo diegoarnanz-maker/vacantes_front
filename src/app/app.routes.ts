@@ -22,6 +22,7 @@ import { SolicitudFormComponent } from './Pages/User/solicitud-form/solicitud-fo
 import { VacanteDetailPublicComponent } from './Pages/vacante-detail-public/vacante-detail-public.component';
 import { SolicitudDetailCompanyComponent } from './Pages/Company/solicitud-detail-company/solicitud-detail-company.component';
 import { SolicitudDetailUserComponent } from './Pages/User/solicitud-detail-user/solicitud-detail-user.component';
+import { UsuarioListComponent } from './Pages/Admin/usuario-list/usuario-list.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -54,7 +55,9 @@ export const routes: Routes = [
     { path: 'categorias', component: CategoriaListComponent, canActivate:[adminGuard]  },
     { path: 'empresas', component: EmpresaListComponent, canActivate:[adminGuard]  },
     { path: 'usuarios', component: UsuariosDashboardComponent, canActivate:[adminGuard]  },
+    { path: 'usuarios/lista', component: UsuarioListComponent, canActivate:[adminGuard]  },
     { path: 'miPerfil-admin', component: MiPerfilAdminComponent, canActivate:[adminGuard]  }, 
+
     
     { path: 'categorias/form', component: CategoriaFormComponent, canActivate:[adminGuard]  }, //Para crear nueva categoría
     { path: 'categorias/form/:idCategoria', component: CategoriaFormComponent, canActivate:[adminGuard]  }, //Para editar categoría existente
