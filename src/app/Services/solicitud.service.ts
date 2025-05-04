@@ -9,7 +9,7 @@ export class SolicitudService {
 
   private http = inject(HttpClient);
   // private apiUrl = 'http://localhost:8080/solicitudes'; // lo he tenido que cambiar para que corra en el 9090
-  private apiUrl = 'http://localhost:8089/solicitudes';
+  private apiUrl = 'http://localhost:8080/solicitudes';
 
   constructor() { }
 

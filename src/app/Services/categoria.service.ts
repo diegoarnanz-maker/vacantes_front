@@ -9,7 +9,7 @@ import { CategoriaRequest } from '../Models/Responses/categoria-request';
 })
 export class CategoriaService {
 
-  private apiUrl = 'http://localhost:8089/categorias';
+  private apiUrl = 'http://localhost:8080/categorias';
   private http = inject(HttpClient);
   
   constructor() { }

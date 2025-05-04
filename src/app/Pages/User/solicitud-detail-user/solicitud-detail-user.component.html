@@ -1,72 +1,85 @@
+@if (solicitudSelect) {
 <div class="solicitud-detail container my-4">
-    <div class="card p-4 mx-auto solicitud-card–compact">
-
-        <!-- Cabecera: logo + empresa -->
-        <div class="d-flex align-items-center mb-3 pt-3 ps-3">
-            <div class="image-wrapper me-2">
-                <img [src]="solicitudSelect.imagenVacante" [alt]="'Logo de ' + solicitudSelect.nombreEmpresa"
-                    class="rounded-circle" />
-            </div>
-            <div class="ps-2">
-                <h5 class="mb-0 small">{{ solicitudSelect.nombreEmpresa }}</h5>
-                <!-- Si no tienes país en la interfaz, lo eliminas -->
-            </div>
-        </div>
-
-        <!-- Título y categoría centrados -->
-        <div class="text-center mb-3 pt-3 pb-3" id="titulo">
-            <h2 class="h5 mb-0 fw-bold">{{ solicitudSelect.nombreVacante }}</h2>
-            <div class="text-secondary small">{{ solicitudSelect.categoriaVacante }}</div>
-        </div>
-
-        <!-- Fecha  -->
-        <p class="text-center text-muted small mb-3">
-            Fecha solicitud: {{ solicitudSelect.fecha }}
-        </p>
-
-        <!-- Detalles -->
-        <div class="mb-2">
-            <h6 class="small mb-1 fw-bold ps-3">Detalles:</h6>
-            <p class="small mb-2 ps-3">{{ solicitudSelect.detalleVacante }}</p>
-        </div>
-
-        <!-- Descripción -->
-        <div class="mb-2">
-            <h6 class="small mb-1 fw-bold ps-3">Descripción:</h6>
-            <p class="small mb-2 ps-3">{{ solicitudSelect.descripcionVacante }}</p>
-        </div>
-
-        <!-- Salario -->
-        <div class="mb-3 small ps-3">
-            <span><strong>Salario:</strong> {{ solicitudSelect.salarioVacante }} $</span><br />
-        </div>
-
-        <!-- Campo comentarios -->
-        <div class="mb-3 small ps-3">
-            <span><strong>Detalles Usuario:</strong> {{ solicitudSelect.comentarios }} </span><br />
-        </div>
-        <!-- Campo curriculum -->
-        <div class="mb-3 small ps-3">
-            <span><strong>Curriculum:</strong> {{ solicitudSelect.curriculum }} </span><br />
-        </div>
-        <!-- Campo archivo -->
-        <div class="mb-3 small ps-3">
-            <span><strong>Archivo:</strong> {{ solicitudSelect.archivo }} </span><br />
-        </div>
-        <!-- Campo estado -->
-        <div class="mb-3 small ps-3">
-            <span><strong>Estado:</strong> {{ estadoSolicitud }} </span><br />
-        </div>
-
-        <!-- Botones centrados -->
-        <div class="d-flex justify-content-center gap-2 pb-4">
-            <button class="btn btn-secondary btn-sm" [routerLink]="['/solicitudes-user']">
-                Volver
-            </button>
-            <button class="btn btn-primary btn-sm" (click)="cancelarSolicitud()">
-                Cancelar 
-            </button>
-        </div>
-
+  <div class="card p-4 mx-auto solicitud-card–compact">
+    <div class="d-flex align-items-center mb-3 pt-3 ps-3">
+      <div class="image-wrapper me-2">
+        <img
+          *ngIf="solicitudSelect.imagenVacante; else noImage"
+          [src]="solicitudSelect.imagenVacante"
+          [alt]="'Logo de ' + solicitudSelect.nombreEmpresa"
+          class="rounded-circle"
+        />
+        <ng-template #noImage></ng-template>
+      </div>
+      <div class="ps-2">
+        <h5 class="mb-0 small">{{ solicitudSelect.nombreEmpresa }}</h5>
+      </div>
     </div>
+
+    <div class="text-center mb-3 pt-3 pb-3" id="titulo">
+      <h2 class="h5 mb-0 fw-bold">{{ solicitudSelect.nombreVacante }}</h2>
+      <div class="text-secondary small">
+        {{ solicitudSelect.categoriaVacante }}
+      </div>
+    </div>
+
+    <p class="text-center text-muted small mb-3">
+      Fecha solicitud: {{ solicitudSelect.fecha }}
+    </p>
+
+    <div class="mb-2">
+      <h6 class="small mb-1 fw-bold ps-3">Detalles:</h6>
+      <p class="small mb-2 ps-3">{{ solicitudSelect.detalleVacante }}</p>
+    </div>
+
+    <div class="mb-2">
+      <h6 class="small mb-1 fw-bold ps-3">Descripción:</h6>
+      <p class="small mb-2 ps-3">{{ solicitudSelect.descripcionVacante }}</p>
+    </div>
+
+    <div class="mb-3 small ps-3">
+      <span
+        ><strong>Salario:</strong> {{ solicitudSelect.salarioVacante }} $</span
+      ><br />
+    </div>
+
+    <div class="mb-3 small ps-3">
+      <span
+        ><strong>Detalles Usuario:</strong>
+        {{ solicitudSelect.comentarios }}</span
+      ><br />
+    </div>
+
+    <div class="mb-3 small ps-3">
+      <span><strong>Curriculum:</strong> {{ solicitudSelect.curriculum }}</span
+      ><br />
+    </div>
+
+    <div class="mb-3 small ps-3">
+      <span><strong>Archivo:</strong> {{ solicitudSelect.archivo }}</span
+      ><br />
+    </div>
+
+    <div class="mb-3 small ps-3">
+      <span><strong>Estado:</strong> {{ estadoSolicitud }}</span
+      ><br />
+    </div>
+
+    <div class="d-flex justify-content-center gap-2 pb-4">
+      <button
+        class="btn btn-secondary btn-sm"
+        [routerLink]="['/solicitudes-user']"
+      >
+        Volver
+      </button>
+      <button class="btn btn-primary btn-sm" (click)="cancelarSolicitud()">
+        Cancelar
+      </button>
+    </div>
+  </div>
 </div>
+} @else {
+<div class="text-center mt-5">
+  <p class="text-muted">Cargando solicitud...</p>
+</div>
+}

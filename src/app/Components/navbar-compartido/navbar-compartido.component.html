@@ -2,98 +2,137 @@
 
 @if(segunRol()==="navbar1"){
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-       
-        <a class="navbar-brand d-flex align-items-center" [routerLink]="['/']">
-            
-            <img src="assets/img/logo.png" alt="Logo" width="40" height="40" class="me-2" />
-            
-            <span>MiProyecto</span>
-        </a>
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" [routerLink]="['/']">
+      <img
+        src="assets/img/logo.jpeg"
+        alt="Logo"
+        width="40"
+        height="40"
+        class="me-2 rounded-circle"
+      />
+      <span>MiProyecto</span>
+    </a>
 
-        <!-- Botón para menú colapsable en móvil -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Botón para menú colapsable en móvil -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <!-- Sección colapsable -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">
-                        <i class="bi bi-house-door"></i>
-                        Inicio
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/solicitudes-user']" routerLinkActive="active">
-                        <i class="bi bi-folder"></i>
-                        Mis Solicitudes
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/miPerfil-user']" routerLinkActive="active">
-                        <i class="bi bi-person"></i>
-                        Yo
-                    </a>
-                </li>
+    <!-- Sección colapsable -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/home']"
+            routerLinkActive="active"
+          >
+            <i class="bi bi-house-door"></i>
+            Inicio
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/solicitudes-user']"
+            routerLinkActive="active"
+          >
+            <i class="bi bi-folder"></i>
+            Mis Solicitudes
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/miPerfil-user']"
+            routerLinkActive="active"
+          >
+            <i class="bi bi-person"></i>
+            Yo
+          </a>
+        </li>
 
-            <!--Dependiendo de si el usuario está autenticado o no se muestra un botón u otro-->
-                @if(!autenticado()){
-                <li class="nav-item">
-                    <a class="btn btn-outline-primary" [routerLink]="['/login']" routerLinkActive="active">
-                        Iniciar Sesión
-                    </a>
-                </li>
-                }
-                @if(autenticado()){
-                <li class="nav-item">
-                    <a class="btn btn-outline-primary" (click)="onLogout()">
-                        Cerrar Sesión
-                    </a>
-                </li>
-                }
-            </ul>
-        </div>
+        <!--Dependiendo de si el usuario está autenticado o no se muestra un botón u otro-->
+        @if(!autenticado()){
+        <li class="nav-item">
+          <a
+            class="btn btn-outline-primary"
+            [routerLink]="['/login']"
+            routerLinkActive="active"
+          >
+            Iniciar Sesión
+          </a>
+        </li>
+        } @if(autenticado()){
+        <li class="nav-item">
+          <a class="btn btn-outline-primary" (click)="onLogout()">
+            Cerrar Sesión
+          </a>
+        </li>
+        }
+      </ul>
     </div>
+  </div>
 </nav>
 }
 <!--Si, por lo contrario, es empresa muestre este otro:.-->
 
 @if(segunRol()==="navbar2"){
 <nav class="navbar navbar-expand-lg navbar-light custom-nav-bg border-bottom">
-    <div class="container-fluid">
-        
-        <a class="navbar-brand d-flex align-items-center" [routerLink]="['/vacantes-company']">
-          
-            <img src="assets/img/logo.png" alt="Logo" width="40" height="40" class="me-2" />
-            
-            <span>MiProyecto</span>
-        </a>
+  <div class="container-fluid">
+    <a
+      class="navbar-brand d-flex align-items-center"
+      [routerLink]="['/vacantes-company']"
+    >
+      <img
+        src="assets/img/logo.png"
+        alt="Logo"
+        width="40"
+        height="40"
+        class="me-2"
+      />
 
-        <!-- Botón para el menú colapsable en pantallas pequeñas -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <span>MiProyecto</span>
+    </a>
 
-        <!-- Sección colapsable -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-               
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" [routerLink]="['/vacantes-company']"
-                        routerLinkActive="active">
-                        <i class="bi bi-briefcase me-1"></i> <!-- Ícono para vacantes -->
-                        Vacantes
-                    </a>
-                </li>
+    <!-- Botón para el menú colapsable en pantallas pequeñas -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-                
-                <!-- <li class="nav-item">
+    <!-- Sección colapsable -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex align-items-center"
+            [routerLink]="['/vacantes-company']"
+            routerLinkActive="active"
+          >
+            <i class="bi bi-briefcase me-1"></i>
+            <!-- Ícono para vacantes -->
+            Vacantes
+          </a>
+        </li>
+
+        <!-- <li class="nav-item">
                     <a class="nav-link d-flex align-items-center" [routerLink]="['/solicitudes-company']"
                         routerLinkActive="active">
                         <i class="bi bi-folder me-1"></i>
@@ -101,103 +140,128 @@
                     </a>
                 </li> -->
 
-                
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" [routerLink]="['/miPerfil-company']"
-                        routerLinkActive="active">
-                        <i class="bi bi-person me-1"></i>
-                        Yo
-                    </a>
-                </li>
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex align-items-center"
+            [routerLink]="['/miPerfil-company']"
+            routerLinkActive="active"
+          >
+            <i class="bi bi-person me-1"></i>
+            Yo
+          </a>
+        </li>
 
-<!--No se utiliza el método autenticado porque el usuario empresa siempre lo estará-->
-                <li class="nav-item">
-                    <a class="btn btn-outline-primary" (click)="onLogout()">
-                        Cerrar Sesión
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <!--No se utiliza el método autenticado porque el usuario empresa siempre lo estará-->
+        <li class="nav-item">
+          <a class="btn btn-outline-primary" (click)="onLogout()">
+            Cerrar Sesión
+          </a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 
 }
-
-
 
 <!--Y si es admin muestre este::.-->
 
 @if(segunRol()==="navbar3"){
 <nav class="navbar navbar-expand-lg navbar-light custom-nav-bg border-bottom">
-    <div class="container-fluid">
-        
-        <a class="navbar-brand d-flex align-items-center" [routerLink]="['/admin-home']">
-            
-            <img src="assets/img/logo.png" alt="Logo" width="40" height="40" class="me-2" />
-            
-            <span>MiProyecto</span> 
-        </a>
+  <div class="container-fluid">
+    <a
+      class="navbar-brand d-flex align-items-center"
+      [routerLink]="['/admin-home']"
+    >
+      <img
+        src="assets/img/logo.png"
+        alt="Logo"
+        width="40"
+        height="40"
+        class="me-2"
+      />
 
-        <!-- Botón colapsable para pantallas pequeñas -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <span>MiProyecto</span>
+    </a>
 
-        <!-- Sección colapsable -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+    <!-- Botón colapsable para pantallas pequeñas -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-            
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" [routerLink]="['/admin-home']" routerLinkActive="active">
-                        <i class="bi bi-house-door me-1"></i>
-                        Inicio
-                    </a>
-                </li>
+    <!-- Sección colapsable -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex align-items-center"
+            [routerLink]="['/admin-home']"
+            routerLinkActive="active"
+          >
+            <i class="bi bi-house-door me-1"></i>
+            Inicio
+          </a>
+        </li>
 
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" [routerLink]="['/categorias']"
-                        routerLinkActive="active">
-                        <i class="bi bi-folder me-1"></i>
-                        Categorías
-                    </a>
-                </li>
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex align-items-center"
+            [routerLink]="['/categorias']"
+            routerLinkActive="active"
+          >
+            <i class="bi bi-folder me-1"></i>
+            Categorías
+          </a>
+        </li>
 
-             
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" [routerLink]="['/empresas']"
-                        routerLinkActive="active">
-                        <i class="bi bi-folder me-1"></i>
-                        Empresas
-                    </a>
-                </li>
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex align-items-center"
+            [routerLink]="['/empresas']"
+            routerLinkActive="active"
+          >
+            <i class="bi bi-folder me-1"></i>
+            Empresas
+          </a>
+        </li>
 
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" [routerLink]="['/usuarios']"
-                        routerLinkActive="active">
-                        <i class="bi bi-folder me-1"></i>
-                        Usuarios
-                    </a>
-                </li>
-              
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" [routerLink]="['/miPerfil-admin']"
-                        routerLinkActive="active">
-                        <i class="bi bi-person me-1"></i>
-                        Yo
-                    </a>
-                </li>
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex align-items-center"
+            [routerLink]="['/usuarios']"
+            routerLinkActive="active"
+          >
+            <i class="bi bi-folder me-1"></i>
+            Usuarios
+          </a>
+        </li>
 
-                
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary" (click)="onLogout()">
-                        Cerrar sesión
-                    </button>
-                </li>
-            </ul>
-        </div>
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex align-items-center"
+            [routerLink]="['/miPerfil-admin']"
+            routerLinkActive="active"
+          >
+            <i class="bi bi-person me-1"></i>
+            Yo
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <button class="btn btn-outline-primary" (click)="onLogout()">
+            Cerrar sesión
+          </button>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 }

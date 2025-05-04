@@ -13,7 +13,7 @@ export class VacanteService {
   private http = inject(HttpClient);
   
   //private apiUrl = 'http://localhost:8080/vacantes';
-    private apiUrl = 'http://localhost:8089/vacantes';
+    private apiUrl = 'http://localhost:8080/vacantes';
 
   constructor() { }
 

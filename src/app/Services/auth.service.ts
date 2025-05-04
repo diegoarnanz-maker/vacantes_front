@@ -13,7 +13,7 @@ import { RegisterResponse } from '../Models/Responses/register-response';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8089/auth';
+  private apiUrl = 'http://localhost:8080/auth';
   private http = inject(HttpClient);
 
 
@@ -101,13 +101,11 @@ export class AuthService {
    const user = localStorage.getItem('user'); //Esto devuelve unacadena JSON o un null si no existe
     if (user) {
       const userLocal = JSON.parse(user); //Se convierte en un objeto JavaScript
-      console.log(userLocal.rol);
+      // console.log(userLocal.rol);
       return userLocal.rol;
       
   }
     return null;
   }
-
-
 
 }
