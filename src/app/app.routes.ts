@@ -69,9 +69,7 @@ export const routes: Routes = [
     { path: 'miPerfil-admin', component: MiPerfilAdminComponent, canActivate:[adminGuard]  }, 
     {
       path: 'usuarios',
-      component: UsuariosDashboardComponent,
-      canActivate: [adminGuard],
-      pathMatch: 'full'    // opcional: para que solo case en '/usuarios'
+      redirectTo: 'usuarios/lista'
     },
 
     
