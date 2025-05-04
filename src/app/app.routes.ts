@@ -23,6 +23,7 @@ import { VacanteDetailPublicComponent } from './Pages/vacante-detail-public/vaca
 import { SolicitudDetailCompanyComponent } from './Pages/Company/solicitud-detail-company/solicitud-detail-company.component';
 import { SolicitudDetailUserComponent } from './Pages/User/solicitud-detail-user/solicitud-detail-user.component';
 import { UsuarioListComponent } from './Pages/Admin/usuario-list/usuario-list.component';
+import { UsuarioEditComponent } from './Pages/Admin/usuario-edit/usuario-edit.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -54,9 +55,24 @@ export const routes: Routes = [
     { path: 'admin-home', component: DashboardComponent, canActivate:[adminGuard] },
     { path: 'categorias', component: CategoriaListComponent, canActivate:[adminGuard]  },
     { path: 'empresas', component: EmpresaListComponent, canActivate:[adminGuard]  },
-    { path: 'usuarios', component: UsuariosDashboardComponent, canActivate:[adminGuard]  },
-    { path: 'usuarios/lista', component: UsuarioListComponent, canActivate:[adminGuard]  },
+    {
+      path: 'usuarios/lista/:_email',
+      component: UsuarioEditComponent,
+      canActivate: [adminGuard]
+    },
+    {
+      path: 'usuarios/lista',
+      component: UsuarioListComponent,
+      canActivate: [adminGuard],
+      pathMatch: 'full'    // evita que '/usuarios/lista/pepito' case también esta ruta
+    },
     { path: 'miPerfil-admin', component: MiPerfilAdminComponent, canActivate:[adminGuard]  }, 
+    {
+      path: 'usuarios',
+      component: UsuariosDashboardComponent,
+      canActivate: [adminGuard],
+      pathMatch: 'full'    // opcional: para que solo case en '/usuarios'
+    },
 
     
     { path: 'categorias/form', component: CategoriaFormComponent, canActivate:[adminGuard]  }, //Para crear nueva categoría

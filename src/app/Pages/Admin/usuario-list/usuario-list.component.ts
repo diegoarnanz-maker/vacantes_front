@@ -12,6 +12,9 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './usuario-list.component.css'
 })
 export class UsuarioListComponent {
+volverPatras() {
+  this.router.navigate(['/usuarios/lista']);
+}
 
   userService = inject(UsuarioService);
   arrUsers! : UsuarioResponse[];

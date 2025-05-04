@@ -23,14 +23,14 @@ return this.http.get<UsuarioResponse[]>(this.apiUrl)
 );
 }
 
-findbyEmail(email:string): Observable<UsuarioResponse> {
-return this.http.get<UsuarioResponse>(`${this.apiUrl}/buscar/${email}`)
-.pipe(
-catchError((error) => {
-  console.error(error);
-  return throwError(() => new Error('Error al encontrar usuario'));
-})
-);
+findbyEmail(email: string): Observable<UsuarioResponse> {
+  return this.http.get<UsuarioResponse>(`${this.apiUrl}/${email}`)
+    .pipe(
+      catchError(error => {
+        console.error(error);
+        return throwError(() => new Error('Error al encontrar usuario'));
+      })
+    );
 }
 
 buscarPorNombre(nombre: string): Observable<UsuarioResponse[]> {
