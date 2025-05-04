@@ -1,1 +1,109 @@
-<p>empresa-form works!</p>
+<div class="container mt-4">
+  <h3 class="text-center mb-4">
+    {{ modoEdicion ? "Editar Empresa" : "Registrar Empresa" }}
+  </h3>
+
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="card p-4 shadow-sm mx-auto"
+    style="max-width: 600px"
+  >
+    <!-- BLOQUE USUARIO -->
+    <div class="mb-4 border rounded p-3">
+      <h5 class="mb-3">Datos del Usuario</h5>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input
+          id="nombre"
+          type="text"
+          formControlName="nombre"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="apellidos" class="form-label">Apellidos</label>
+        <input
+          id="apellidos"
+          type="text"
+          formControlName="apellidos"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <!-- BLOQUE EMPRESA -->
+    <div class="mb-4 border rounded p-3">
+      <h5 class="mb-3">Datos de la Empresa</h5>
+
+      <div class="mb-3">
+        <label for="nombreEmpresa" class="form-label"
+          >Nombre de la empresa</label
+        >
+        <input
+          id="nombreEmpresa"
+          type="text"
+          formControlName="nombreEmpresa"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="cif" class="form-label">CIF</label>
+        <input
+          id="cif"
+          type="text"
+          formControlName="cif"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="direccionFiscal" class="form-label">Dirección fiscal</label>
+        <input
+          id="direccionFiscal"
+          type="text"
+          formControlName="direccionFiscal"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="pais" class="form-label">País</label>
+        <input
+          id="pais"
+          type="text"
+          formControlName="pais"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <div class="text-end">
+      <button type="submit" class="btn btn-primary">
+        {{ modoEdicion ? "Actualizar" : "Registrar" }}
+      </button>
+    </div>
+  </form>
+
+  <div class="text-center m-4">
+    <button
+      class="btn btn-outline-secondary btn-sm"
+      [routerLink]="['/empresas']"
+    >
+      Volver al listado de empresas
+    </button>
+  </div>
+</div>
