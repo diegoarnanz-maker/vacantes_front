@@ -10,6 +10,7 @@
           <th scope="col">Enabled</th>
           <th scope="col">Fecha de Registro</th>
           <th scope="col">Rol</th>
+          <th scope="col">Modificar</th>
         </tr>
       </thead>
       <tbody>
@@ -18,9 +19,16 @@
           <td>{{ usuario.email }}</td>
           <td>{{ usuario.nombre }}</td>
           <td>{{ usuario.apellidos }}</td>
-          <td>{{ usuario.enabled }}</td>
+          <td>
+            @if (usuario.enabled === 1 && usuario.rol != 'ADMON') {
+                <button (click)="desactivar(usuario.email)">DESACTIVAR</button>
+            } @else if (usuario.enabled === 0 && usuario.rol != 'ADMON')  {
+              <button (click)="activar(usuario.email)">ACTIVAR</button>
+            }
+          </td>
           <td>{{ usuario.fechaRegistro }}</td>
           <td>{{ usuario.rol }}</td>
+          <td><a class="btn-primary" routerLink="{{usuario.email}}" >Editar</a></td>
         </tr>
         }
       </tbody>

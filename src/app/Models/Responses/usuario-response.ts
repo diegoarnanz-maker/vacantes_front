@@ -1,5 +1,5 @@
 export interface UsuarioResponse {
-    email: String ;
+    email: string ;
     nombre:String;
     apellidos: String;
     rol: String;
