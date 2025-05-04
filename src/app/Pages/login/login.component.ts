@@ -4,6 +4,7 @@ import { RouterLink, Router} from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
 import { LoginResponse } from '../../Models/Responses/login-response';
 import { LoginRequest } from '../../Models/Responses/login-request';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -46,13 +47,11 @@ export class LoginComponent {
   }
   
   getLogin() {
-   
   const loginUser: LoginRequest = this.FormLogin.value as LoginRequest;
 
-  // Se llama al método login del servicio, que devuelve un Observable.
   this.authService.login(loginUser).subscribe({
     next: (response: LoginResponse) => {
-      // Se redirige según el rol devuelto en la respuesta.
+      // Redirige según rol
       if (response.rol === 'CLIENTE') {
         this.router.navigate(['home']);
       } else if (response.rol === 'EMPRESA') {
@@ -61,9 +60,13 @@ export class LoginComponent {
         this.router.navigate(['admin-home']);
       }
     },
-    error: (error) => {
-      // En caso de error se muestra un mensaje de alerta y se resetea el formulario.
-      alert("Credenciales incorrectas");
+    error: () => {
+      Swal.fire({
+        title: 'Credenciales incorrectas',
+        text: 'Por favor, verifica usuario y contraseña.',
+        icon: 'error',
+        confirmButtonText: 'Cerrar'
+      });
       this.FormLogin.reset();
     }
   });

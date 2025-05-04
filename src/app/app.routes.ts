@@ -1,3 +1,4 @@
+import { DatosFormUserComponent } from './../../../../vacantes_front-main/src/app/Pages/User/datos-form-user/datos-form-user.component';
 import { Routes } from '@angular/router';
 import { LoginComponent } from './Pages/login/login.component';
 import { RegistroComponent } from './Pages/registro/registro.component';
@@ -22,6 +23,7 @@ import { SolicitudFormComponent } from './Pages/User/solicitud-form/solicitud-fo
 import { VacanteDetailPublicComponent } from './Pages/vacante-detail-public/vacante-detail-public.component';
 import { SolicitudDetailCompanyComponent } from './Pages/Company/solicitud-detail-company/solicitud-detail-company.component';
 import { SolicitudDetailUserComponent } from './Pages/User/solicitud-detail-user/solicitud-detail-user.component';
+import { DatosFormCompanyComponent } from './Pages/Company/datos-form-company/datos-form-company.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -36,10 +38,12 @@ export const routes: Routes = [
     { path: 'solicitud-user/detail/:idSolicitud', component: SolicitudDetailUserComponent, canActivate:[authGuard] },
 
     { path: 'miPerfil-user', component: MiPerfilUserComponent, canActivate: [authGuard] },
+    { path: 'DatosForm-user', component: DatosFormUserComponent, canActivate: [authGuard] },
     
     //Flujo Usuario Empresa
     { path: 'vacantes-company', component: VacanteListCompanyComponent, canActivate:[companyGuard] }, //Es el home de la empresa
-    { path: 'miPerfil-company', component: MiPerfilCompanyComponent, canActivate:[companyGuard] },
+    { path: 'miPerfil-company', component: MiPerfilCompanyComponent, canActivate: [companyGuard] },
+    { path: 'DatosForm-company', component: DatosFormCompanyComponent, canActivate:[companyGuard] },
 
     { path: 'vacante-details/company/:idVacante', component: VacanteDetailCompanyComponent, canActivate:[companyGuard] },
     { path: 'vacante-form/company/:idVacante', component: VacanteFormComponent, canActivate: [companyGuard] }, //Para editar vacante existente
@@ -54,7 +58,8 @@ export const routes: Routes = [
     { path: 'categorias', component: CategoriaListComponent, canActivate:[adminGuard]  },
     { path: 'empresas', component: EmpresaListComponent, canActivate:[adminGuard]  },
     { path: 'usuarios', component: UsuariosDashboardComponent, canActivate:[adminGuard]  },
-    { path: 'miPerfil-admin', component: MiPerfilAdminComponent, canActivate:[adminGuard]  }, 
+    { path: 'miPerfil-admin', component: MiPerfilAdminComponent, canActivate: [adminGuard] }, 
+    
     
     { path: 'categorias/form', component: CategoriaFormComponent, canActivate:[adminGuard]  }, //Para crear nueva categoría
     { path: 'categorias/form/:idCategoria', component: CategoriaFormComponent, canActivate:[adminGuard]  }, //Para editar categoría existente
