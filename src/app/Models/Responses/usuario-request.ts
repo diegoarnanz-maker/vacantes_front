@@ -5,4 +5,4 @@ export interface UsuarioRequest {
     enabled?: number;
     password?: string;
   }
-  
+

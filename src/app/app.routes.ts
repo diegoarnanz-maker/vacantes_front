@@ -28,6 +28,8 @@ import { EmpresaDetailComponent } from './Pages/Admin/empresa-detail/empresa-det
 import { EmpresaFormComponent } from './Pages/Admin/empresa-form/empresa-form.component';
 import { EmpresaListDesactivadasComponent } from './Pages/Admin/empresa-list-desactivadas/empresa-list-desactivadas.component';
 import { UsuariosDashboardComponent } from './Pages/Admin/usuarios-dashboard/usuarios-dashboard.component';
+import { UsuarioListComponent } from './Pages/Admin/usuario-list/usuario-list.component';
+import { UsuarioEditComponent } from './Pages/Admin/usuario-edit/usuario-edit.component';
 
 import { authGuard } from './Security/Guards/auth.guard';
 import { companyGuard } from './Security/Guards/company.guard';
@@ -69,7 +71,10 @@ export const routes: Routes = [
   { path: 'empresas/form', component: EmpresaFormComponent, canActivate: [adminGuard] },
   { path: 'empresas/form/:idEmpresa', component: EmpresaFormComponent, canActivate: [adminGuard] },
   { path: 'empresas/desactivadas', component: EmpresaListDesactivadasComponent, canActivate: [adminGuard] },
-  { path: 'usuarios', component: UsuariosDashboardComponent, canActivate: [adminGuard] },
+  { path: 'usuarios', redirectTo: 'usuarios/lista', pathMatch: 'full' },
+  { path: 'usuarios/lista', component: UsuarioListComponent, canActivate: [adminGuard] },
+  { path: 'usuarios/lista/:_email', component: UsuarioEditComponent, canActivate: [adminGuard] },
+  { path: 'usuarios/dashboard', component: UsuariosDashboardComponent, canActivate: [adminGuard] },
 
   // Wildcard
   { path: '**', component: PublicHomeComponent }

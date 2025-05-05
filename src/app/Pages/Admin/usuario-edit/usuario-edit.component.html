@@ -1,0 +1,105 @@
+<div class="text-center"><h2>Editar usuario</h2></div>
+<br>
+<form [formGroup]="modelForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <!-- Columna 1: Email (solo lectura) y Nombre -->
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-control"
+          
+        />
+      </div>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          formControlName="nombre"
+          class="form-control"
+          [class.is-invalid]="modelForm.get('nombre')?.invalid && modelForm.get('nombre')?.touched"
+          placeholder="Introduce el nombre"
+        />
+        <div *ngIf="modelForm.get('nombre')?.invalid && modelForm.get('nombre')?.touched"
+             class="invalid-feedback">
+          El nombre es obligatorio.
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna 2: Apellidos y Rol -->
+    <div class="col-md-3">
+      <div class="mb-3">
+        <label for="apellidos" class="form-label">Apellidos</label>
+        <input
+          type="text"
+          id="apellidos"
+          formControlName="apellidos"
+          class="form-control"
+          [class.is-invalid]="modelForm.get('apellidos')?.invalid && modelForm.get('apellidos')?.touched"
+          placeholder="Introduce los apellidos"
+        />
+        <div *ngIf="modelForm.get('apellidos')?.invalid && modelForm.get('apellidos')?.touched"
+             class="invalid-feedback">
+          Los apellidos son obligatorios.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="rol" class="form-label">Rol</label>
+        <select
+          id="rol"
+          formControlName="rol"
+          class="form-select"
+          [class.is-invalid]="modelForm.get('rol')?.invalid && modelForm.get('rol')?.touched"
+        >
+          <option value="" disabled>Selecciona un rol</option>
+          <option value="ROLE_USER">Usuario</option>
+          <option value="ROLE_COMPANY">Empresa</option>
+          <option value="ROLE_ADMON">Administrador</option>
+        </select>
+        <div *ngIf="modelForm.get('rol')?.invalid && modelForm.get('rol')?.touched"
+             class="invalid-feedback">
+          El rol es obligatorio.
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna 3: Enabled y Fecha de Registro -->
+    <div class="col-md-3">
+      <!-- <div class="form-check form-switch mb-3">
+        <input
+          id="enabled"
+          type="checkbox"
+          class="form-check-input"
+          formControlName="enabled"
+        />
+        <label class="form-check-label" for="enabled">
+          {{ modelForm.get('enabled')?.value ? 'Activo' : 'Desactivado' }}
+        </label>
+      </div> -->
+      <div class="mb-3">
+        <label for="fechaRegistro" class="form-label">Fecha de Registro</label>
+        <input
+          type="date"
+          id="fechaRegistro"
+          formControlName="fechaRegistro"
+          class="form-control"
+          
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mt-4">
+    <button type="button" class="btn btn-secondary me-2" (click)="volver()">
+      Volver
+    </button>
+    <button type="submit" class="btn btn-primary" [disabled]="modelForm.invalid">
+      Guardar
+    </button>
+  </div>
+</form>
