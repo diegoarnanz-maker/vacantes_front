@@ -5,7 +5,6 @@ import { LoginResponse } from '../Models/Responses/login-response';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { RegisterRequest } from '../Models/Responses/register-request';
 import { UsuarioResponse } from '../Models/Responses/usuario-response';
-import { IUsuario } from '../Models/Interfaces/iusuario';
 import { RegisterResponse } from '../Models/Responses/register-response';
 
 @Injectable({

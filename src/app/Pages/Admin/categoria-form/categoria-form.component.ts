@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CategoriaService } from '../../../Services/categoria.service';
 import { CategoriaResponse } from '../../../Models/Responses/categoria-response';
 import { CategoriaRequest } from '../../../Models/Responses/categoria-request';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-categoria-form',
@@ -61,39 +62,58 @@ export class CategoriaFormComponent {
     }
   }
 
-  getDatosForm() {
+getDatosForm() {
+  const catDataForm: CategoriaRequest = this.formCategoria.value as CategoriaRequest;
 
-    const catDataForm: CategoriaRequest = this.formCategoria.value as CategoriaRequest;
-
-    if (this.tipo === "Crear") {
-      this.categoriaService.insertCategoria(catDataForm).subscribe({
-        next: (response: CategoriaResponse) => {
-          this.route.navigate(['categorias'])
-          alert('Categoria creada');
-        },
-        error: (error) => {
-         
-          alert("Error al crear");
-          this.formCategoria.reset();
-        }
-      })
-    } else if (this.tipo === "Modificar") {
-    
-      this.categoriaService.updateCategoria(this.categoriaId!, catDataForm).subscribe({ //Con la exclamación aseguramos que categoriaId será un number
-        next: (response: CategoriaResponse) => {
-          this.route.navigate(['categorias'])
-          alert('Categoría modificada')
-        },
-        error: (error) => {
-
-          alert("Error al modificar");
+  if (this.tipo === 'Crear') {
+    this.categoriaService.insertCategoria(catDataForm).subscribe({
+      next: (response: CategoriaResponse) => {
+        Swal.fire({
+          title: '¡Creada!',
+          text: 'La categoría ha sido creada con éxito.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        }).then(() => {
           this.route.navigate(['categorias']);
-        }
-      }) 
-    
-    }
-    
+        });
+      },
+      error: (error) => {
+        console.error('Error al crear categoría:', error);
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo crear la categoría.',
+          icon: 'error',
+          confirmButtonText: 'Cerrar'
+        });
+        this.formCategoria.reset();
+      }
+    });
+  } else if (this.tipo === 'Modificar') {
+    this.categoriaService.updateCategoria(this.categoriaId!, catDataForm).subscribe({
+      next: (response: CategoriaResponse) => {
+        Swal.fire({
+          title: '¡Modificada!',
+          text: 'La categoría se ha actualizado correctamente.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        }).then(() => {
+          this.route.navigate(['categorias']);
+        });
+      },
+      error: (error) => {
+        console.error('Error al modificar categoría:', error);
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo modificar la categoría.',
+          icon: 'error',
+          confirmButtonText: 'Cerrar'
+        }).then(() => {
+          this.route.navigate(['categorias']);
+        });
+      }
+    });
   }
+}
 
    checkControl(formControlName: string, validador: string): boolean | undefined {
     return this.formCategoria.get(formControlName)?.hasError(validador) && this.formCategoria.get(formControlName)?.touched 

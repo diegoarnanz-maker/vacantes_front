@@ -6,6 +6,7 @@ import { VacanteResponse } from '../../../Models/Responses/vacante-response';
 import { VacanteRequest } from '../../../Models/Responses/vacante-request';
 import { Estatus } from '../../../Models/Enum/estatus';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-vacante-form',
@@ -87,33 +88,55 @@ export class VacanteFormComponent {
   }
 
   getDatosForm() {
-    
-    const vacDataForm: VacanteRequest = this.formVacante.value as VacanteRequest;
+  const vacDataForm: VacanteRequest = this.formVacante.value as VacanteRequest;
 
-    if (this.tipo === "Crear") {
-      this.vacanteService.insertVacante(vacDataForm).subscribe({
-        next: () => {
-          alert('Vacante creada');
+  if (this.tipo === 'Crear') {
+    this.vacanteService.insertVacante(vacDataForm).subscribe({
+      next: () => {
+        Swal.fire({
+          title: '¡Creada!',
+          text: 'La vacante ha sido creada con éxito.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        }).then(() => {
           this.router.navigate(['/vacantes-company']);
-        },
-        error: () => {
-          alert('Error al crear vacante');
-          this.formVacante.reset();
-        }
-      });
-    } else if (this.tipo==="Modificar") {
-      this.vacanteService.updateVacante(this.vacanteId!, vacDataForm).subscribe({
-        next: (response: VacanteResponse) => {
-          alert('Vacante modificada');
+        });
+      },
+      error: () => {
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo crear la vacante.',
+          icon: 'error',
+          confirmButtonText: 'Cerrar'
+        });
+        this.formVacante.reset();
+      }
+    });
+  } else if (this.tipo === 'Modificar') {
+    this.vacanteService.updateVacante(this.vacanteId!, vacDataForm).subscribe({
+      next: (response: VacanteResponse) => {
+        Swal.fire({
+          title: '¡Modificada!',
+          text: 'La vacante ha sido actualizada correctamente.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        }).then(() => {
           this.router.navigate(['/vacantes-company']);
-        },
-        error: () => {
-          alert('Error al modificar vacante');
+        });
+      },
+      error: () => {
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo modificar la vacante.',
+          icon: 'error',
+          confirmButtonText: 'Cerrar'
+        }).then(() => {
           this.router.navigate(['/vacantes-company']);
-        }
-      });
-    }
+        });
+      }
+    });
   }
+}
 
   checkControl(formControlName: string, validator: string): boolean| undefined {
     

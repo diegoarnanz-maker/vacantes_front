@@ -1,1 +1,91 @@
-<p>mi-perfil-company works!</p>
+<div class="container my-5">
+  <!-- === CABECERA === -->
+  <div class="title-row mb-4 text-center">
+    <h2 class="mb-0 fw-bold">Mi Perfil Empresa</h2>
+  </div>
+
+  @if (isLoading) {
+  <div class="text-center py-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+  } @else if (errorMensaje) {
+  <div class="alert alert-danger text-center">
+    {{ errorMensaje }}
+  </div>
+  } @else if (usuario) {
+  <!-- Card 1: Datos del Usuario -->
+  <div class="card mx-auto mb-4" style="max-width: 500px">
+    <div class="card-header bg-light text-center">
+      <h5 class="mb-0">Datos del Usuario</h5>
+    </div>
+    <table class="table table-sm mb-0">
+      <tbody>
+        <tr>
+          <th scope="row" class="col-4">Nombre</th>
+          <td>{{ usuario.nombre }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Apellidos</th>
+          <td>{{ usuario.apellidos }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Email</th>
+          <td>{{ usuario.email }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Rol</th>
+          <td>{{ usuario.rol }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Fecha registro</th>
+          <td>{{ usuario.fechaRegistro }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Card 2: Datos de la Empresa -->
+  <div class="card mx-auto" style="max-width: 500px">
+    <div class="card-header bg-light text-center">
+      <h5 class="mb-0">{{ usuario.nombreEmpresa }}</h5>
+    </div>
+    <table class="table table-sm mb-0">
+      <tbody>
+        <tr>
+          <th scope="row" class="col-4">CIF</th>
+          <td>{{ usuario.cifEmpresa }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Dirección fiscal</th>
+          <td>{{ usuario.direccionFiscal }}</td>
+        </tr>
+        <tr>
+          <th scope="row">País</th>
+          <td>{{ usuario.paisEmpresa }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div
+    class="card-footer text-center py-2 mt-3 d-flex justify-content-center gap-3"
+  >
+    <button
+      class="btn btn-primary btn-sm px-3"
+      [routerLink]="['/DatosForm-company']"
+    >
+      Modificar
+    </button>
+    <button
+      class="btn btn-secondary btn-sm px-3"
+      [routerLink]="['/vacantes-company']"
+    >
+      Volver
+    </button>
+  </div>
+
+  } @else {
+  <p class="text-center py-5">No hay datos de perfil.</p>
+  }
+</div>

@@ -1,0 +1,29 @@
+.card {
+    border: 1px solid #3a6088;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem 1.25rem;
+    vertical-align: middle;
+}
+
+.card-footer {
+    background-color: white;
+    border-top: none;
+    padding: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
