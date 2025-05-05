@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { UsuarioResponse } from '../Models/Responses/usuario-response';
 import { UsuarioRequest } from '../Models/Responses/usuario-request';
+import { EmpresaPerfilUpdate } from '../Models/Responses/empresa-perfil-update';
 
 @Injectable({
   providedIn: 'root',
@@ -31,5 +32,12 @@ export class UsuarioService {
           return throwError(() => new Error('Error al actualizar perfil'));
         })
       );
+  }
+
+  actualizarPerfilEmpresa(dto: EmpresaPerfilUpdate) {
+    return this.http.put<{ message: string }>(
+      'http://localhost:8080/usuarios/perfil/empresa',
+      dto
+    );
   }
 }
