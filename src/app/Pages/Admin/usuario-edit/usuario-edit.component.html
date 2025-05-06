@@ -1,7 +1,11 @@
-<div class="text-center"><h2>Editar usuario</h2></div>
+<div class="text-center">
+  <h2>Editar usuario</h2>
+</div>
 <br>
+
 <form [formGroup]="modelForm" (ngSubmit)="onSubmit()">
   <div class="row">
+
     <!-- Columna 1: Email (solo lectura) y Nombre -->
     <div class="col-md-6">
       <div class="mb-3">
@@ -11,9 +15,10 @@
           id="email"
           formControlName="email"
           class="form-control"
-          
+          readonly
         />
       </div>
+
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
         <input
@@ -24,8 +29,10 @@
           [class.is-invalid]="modelForm.get('nombre')?.invalid && modelForm.get('nombre')?.touched"
           placeholder="Introduce el nombre"
         />
-        <div *ngIf="modelForm.get('nombre')?.invalid && modelForm.get('nombre')?.touched"
-             class="invalid-feedback">
+        <div
+          *ngIf="modelForm.get('nombre')?.invalid && modelForm.get('nombre')?.touched"
+          class="invalid-feedback"
+        >
           El nombre es obligatorio.
         </div>
       </div>
@@ -43,11 +50,14 @@
           [class.is-invalid]="modelForm.get('apellidos')?.invalid && modelForm.get('apellidos')?.touched"
           placeholder="Introduce los apellidos"
         />
-        <div *ngIf="modelForm.get('apellidos')?.invalid && modelForm.get('apellidos')?.touched"
-             class="invalid-feedback">
+        <div
+          *ngIf="modelForm.get('apellidos')?.invalid && modelForm.get('apellidos')?.touched"
+          class="invalid-feedback"
+        >
           Los apellidos son obligatorios.
         </div>
       </div>
+
       <div class="mb-3">
         <label for="rol" class="form-label">Rol</label>
         <select
@@ -57,30 +67,21 @@
           [class.is-invalid]="modelForm.get('rol')?.invalid && modelForm.get('rol')?.touched"
         >
           <option value="" disabled>Selecciona un rol</option>
-          <option value="ROLE_USER">Usuario</option>
-          <option value="ROLE_COMPANY">Empresa</option>
-          <option value="ROLE_ADMON">Administrador</option>
+          <option *ngFor="let r of roles" [value]="r.value">{{ r.label }}</option>
         </select>
-        <div *ngIf="modelForm.get('rol')?.invalid && modelForm.get('rol')?.touched"
-             class="invalid-feedback">
+        <div
+          *ngIf="modelForm.get('rol')?.invalid && modelForm.get('rol')?.touched"
+          class="invalid-feedback"
+        >
           El rol es obligatorio.
         </div>
+        <!-- Debug: muestra valor actual del control -->
+        <!-- <pre class="mt-2">Valor rol: {{ modelForm.get('rol')?.value | json }}</pre> -->
       </div>
     </div>
 
-    <!-- Columna 3: Enabled y Fecha de Registro -->
+    <!-- Columna 3: Fecha de Registro -->
     <div class="col-md-3">
-      <!-- <div class="form-check form-switch mb-3">
-        <input
-          id="enabled"
-          type="checkbox"
-          class="form-check-input"
-          formControlName="enabled"
-        />
-        <label class="form-check-label" for="enabled">
-          {{ modelForm.get('enabled')?.value ? 'Activo' : 'Desactivado' }}
-        </label>
-      </div> -->
       <div class="mb-3">
         <label for="fechaRegistro" class="form-label">Fecha de Registro</label>
         <input
@@ -88,10 +89,11 @@
           id="fechaRegistro"
           formControlName="fechaRegistro"
           class="form-control"
-          
+          readonly
         />
       </div>
     </div>
+
   </div>
 
   <div class="d-flex justify-content-center mt-4">

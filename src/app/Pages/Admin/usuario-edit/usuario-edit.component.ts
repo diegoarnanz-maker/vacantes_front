@@ -25,13 +25,20 @@ export class UsuarioEditComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
 
+  /** Valores exactos de rol que espera el backend */
+  public roles = [
+    { value: 'CLIENTE',    label: 'Usuario' },
+    { value: 'EMPRESA', label: 'Empresa' },
+    { value: 'ADMON',   label: 'Administrador' }
+  ];
+
   ngOnInit(): void {
     // 1) Inicializar formulario
     this.modelForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      nombre: new FormControl('', [Validators.required]),
-      apellidos: new FormControl('', [Validators.required]),
-      rol: new FormControl('', [Validators.required]),
+      email:         new FormControl('', [Validators.required, Validators.email]),
+      nombre:        new FormControl('', [Validators.required]),
+      apellidos:     new FormControl('', [Validators.required]),
+      rol:           new FormControl('', [Validators.required]),
       fechaRegistro: new FormControl('', [Validators.required])
     });
 
@@ -46,11 +53,14 @@ export class UsuarioEditComponent implements OnInit {
 
       this.userService.findbyEmail(this.emailParam).subscribe({
         next: (u: UsuarioResponse) => {
+          console.log('ROL desde el backend:', JSON.stringify(u.rol));
+          console.log('Valores disponibles:', this.roles.map(r => JSON.stringify(r.value)));
+
           this.modelForm.patchValue({
-            email: u.email,
-            nombre: u.nombre,
-            apellidos: u.apellidos,
-            rol: u.rol,
+            email:         u.email,
+            nombre:        u.nombre,
+            apellidos:     u.apellidos,
+            rol:           u.rol,
             fechaRegistro: this.formatDate(u.fechaRegistro)
           });
         },
@@ -69,11 +79,11 @@ export class UsuarioEditComponent implements OnInit {
 
     const raw = this.modelForm.value;
     const dto = {
-      nombre: raw.nombre,
+      nombre:    raw.nombre,
       apellidos: raw.apellidos,
-      rol: raw.rol,
-      enabled: 1,        // forzamos enabled = 1
-      password: undefined
+      rol:       raw.rol,
+      enabled:   1,        // forzamos enabled = 1
+      password:  undefined
     };
 
     this.userService.updateUsuario(this.emailParam, dto).subscribe({
@@ -83,9 +93,8 @@ export class UsuarioEditComponent implements OnInit {
           text: 'Los cambios se han guardado correctamente.',
           icon: 'success',
           confirmButtonText: 'Aceptar'
-        }).then((result) => {
+        }).then(result => {
           if (result.isConfirmed) {
-            // Al pulsar “Aceptar” te lleva a la lista
             this.router.navigate(['/usuarios/lista']);
           }
         });
@@ -109,8 +118,8 @@ export class UsuarioEditComponent implements OnInit {
   private formatDate(input: string | Date): string {
     const d = new Date(input);
     const yyyy = d.getFullYear();
-    const mm = String(d.getMonth() + 1).padStart(2, '0');
-    const dd = String(d.getDate()).padStart(2, '0');
+    const mm   = String(d.getMonth() + 1).padStart(2, '0');
+    const dd   = String(d.getDate()).padStart(2, '0');
     return `${yyyy}-${mm}-${dd}`;
   }
 }
