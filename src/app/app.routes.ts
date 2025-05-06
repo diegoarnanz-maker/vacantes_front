@@ -32,6 +32,7 @@ import { UsuariosDashboardComponent } from './Pages/Admin/usuarios-dashboard/usu
 import { authGuard } from './Security/Guards/auth.guard';
 import { companyGuard } from './Security/Guards/company.guard';
 import { adminGuard } from './Security/Guards/admin.guard';
+import { DatosFormAdminComponent } from './Pages/Admin/datos-form-admin/datos-form-admin.component';
 
 export const routes: Routes = [
   // Público
@@ -70,6 +71,7 @@ export const routes: Routes = [
   { path: 'empresas/form/:idEmpresa', component: EmpresaFormComponent, canActivate: [adminGuard] },
   { path: 'empresas/desactivadas', component: EmpresaListDesactivadasComponent, canActivate: [adminGuard] },
   { path: 'usuarios', component: UsuariosDashboardComponent, canActivate: [adminGuard] },
+  { path: 'DatosForm-admin', component: DatosFormAdminComponent, canActivate: [adminGuard] },
 
   // Wildcard
   { path: '**', component: PublicHomeComponent }

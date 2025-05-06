@@ -1,49 +1,51 @@
 <div class="container my-5">
+  <!-- === CABECERA === -->
+  <div class="title-row mb-4 text-center">
+    <h2 class="mb-0 fw-bold">Mi Perfil</h2>
+  </div>
 
-    <!-- === CABECERA === -->
-    <div class="title-row mb-4 text-center">
-        <h2 class="mb-0 fw-bold">Mi Perfil</h2>
+  @if (isLoading) {
+  <div class="text-center py-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Cargando...</span>
     </div>
-
-    @if (isLoading) {
-    <div class="text-center py-5">
-        <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Cargando...</span>
-        </div>
+  </div>
+  } @else if (errorMensaje) {
+  <div class="alert alert-danger text-center">
+    {{ errorMensaje }}
+  </div>
+  } @else if (usuario) {
+  <div class="card mx-auto mb-4" style="max-width: 500px">
+    <div class="card-header bg-light text-center">
+      <h5 class="mb-0">{{ usuario.nombre }}</h5>
     </div>
-    }
-    @else if (errorMensaje) {
-    <div class="alert alert-danger text-center">
-        {{ errorMensaje }}
-    </div>
-    }
-    @else if (usuario) {
-    <div class="card mx-auto mb-4" style="max-width: 500px;">
-        <div class="card-header bg-light text-center">
-            <h5 class="mb-0">{{ usuario.nombre }}</h5>
-        </div>
-        <table class="table table-sm mb-0">
-            <tbody>
-                <tr>
-                    <th scope="row" class="col-4">Apellidos</th>
-                    <td>{{ usuario.apellidos }}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Email</th>
-                    <td>{{ usuario.email }}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Fecha registro</th>
-                    <td>{{ usuario.fechaRegistro }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    }
-    @else {
-    <p class="text-center py-5">
-        No hay datos de perfil.
-    </p>
-    }
-
+    <table class="table table-sm mb-0">
+      <tbody>
+        <tr>
+          <th scope="row" class="col-4">Apellidos</th>
+          <td>{{ usuario.apellidos }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Email</th>
+          <td>{{ usuario.email }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Fecha registro</th>
+          <td>{{ usuario.fechaRegistro }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer text-center py-2 mt-3">
+    <button
+      type="button"
+      class="btn btn-primary btn-sm px-3"
+      [routerLink]="['/DatosForm-admin']"
+    >
+      Modificar
+    </button>
+  </div>
+  } @else {
+  <p class="text-center py-5">No hay datos de perfil.</p>
+  }
 </div>

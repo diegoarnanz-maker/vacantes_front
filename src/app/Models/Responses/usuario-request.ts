@@ -4,5 +4,6 @@ export interface UsuarioRequest {
     rol?: string;
     enabled?: number;
     password?: string;
+    
   }
   
