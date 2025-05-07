@@ -9,7 +9,7 @@
 }
 
 .title-row h2 {
-    font-weight: 600;
+    font-weight: 600 !important; 
     color: #333;
 }
 

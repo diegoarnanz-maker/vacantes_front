@@ -1,7 +1,6 @@
 
-<div class="container my-5">
-
-    <!-- === CABECERA === -->
+<div class="perfil-user-container container my-5">
+   
     <div class="title-row mb-4 text-center">
         <h2 class="mb-0 fw-bold">Mi Perfil</h2>
     </div>
@@ -19,8 +18,9 @@
     </div>
     }
     @else if (usuario) {
-    <div class="card mx-auto mb-4" style="max-width: 500px;">
-        <div class="card-header bg-light text-center">
+    
+    <div class="perfil-user-card card mx-auto" style="max-width: 500px;">
+        <div class="perfil-user-header card-header text-center">
             <h5 class="mb-0">{{ usuario.nombre }}</h5>
         </div>
         <table class="table table-sm mb-0">
@@ -40,8 +40,10 @@
             </tbody>
         </table>
     </div>
-    <div class="card-footer text-center py-2 mt-3">
-        <button class="btn btn-primary btn-sm px-3" [routerLink]="['/DatosForm-user']">
+
+    
+    <div class="perfil-user-footer card-footer text-center py-2 mt-3">
+        <button class="btn btn-edit btn-sm px-3" [routerLink]="['/DatosForm-user']">
             Modificar
         </button>
     </div>
@@ -51,5 +53,4 @@
         No hay datos de perfil.
     </p>
     }
-
 </div>

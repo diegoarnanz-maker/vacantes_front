@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-4 empresa-detail">
   @if (empresa) {
   <div class="row justify-content-center">
     <div class="col-md-8">
@@ -34,26 +34,17 @@
         </div>
 
         <div class="card-footer d-flex justify-content-between px-4 py-3">
-          <button
-            class="btn btn-outline-primary btn-sm"
-            (click)="modificarEmpresa()"
-          >
+          <button class="btn btn-outline-primary btn-sm" (click)="modificarEmpresa()">
             Modificar
           </button>
-          <button
-            class="btn btn-outline-danger btn-sm"
-            (click)="desactivarEmpresa()"
-          >
+          <button class="btn btn-outline-danger btn-sm" (click)="desactivarEmpresa()">
             Desactivar empresa
           </button>
         </div>
       </div>
 
       <div class="text-center m-4">
-        <button
-          class="btn btn-outline-secondary btn-sm"
-          [routerLink]="['/empresas']"
-        >
+        <button class="btn btn-outline-secondary btn-sm" [routerLink]="['/empresas']">
           Volver al listado
         </button>
       </div>

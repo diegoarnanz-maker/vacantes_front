@@ -1,29 +1,76 @@
-.card {
-    border: 1px solid #3a6088;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    border-radius: 0.5rem;
+
+.perfil-empresa {
+    background-color: #fafbfd;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.card-header {
-    background-color: #f8f9fa;
+
+.perfil-empresa .title-row h2 {
+    color: #3a6088;
+    margin-bottom: 1.5rem;
+}
+
+
+.perfil-empresa .card {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.perfil-empresa .card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    color: #3a6088;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.table th,
-.table td {
+
+.perfil-empresa .table {
+    margin-bottom: 0;
+}
+
+.perfil-empresa .table th,
+.perfil-empresa .table td {
     padding: 0.75rem 1.25rem;
     vertical-align: middle;
-}
-
-.card-footer {
-    background-color: white;
+    color: #555;
     border-top: none;
-    padding: 1rem;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+.perfil-empresa .table tbody tr:nth-child(even) {
+    background-color: #f9fbfd;
+}
+
+
+
+
+.perfil-empresa .btn-back {
+    background-color: #7c7c7c;
+    border: none;
+    color: #fff;
+    transition: background 0.2s;
+    width: 90px;
+}
+
+.perfil-empresa .btn-back:hover,
+.perfil-empresa .btn-back:focus {
+    background-color: #5f5f5f;
+}
+
+
+.perfil-empresa .btn-edit {
+    background-color: #00796B;
+    border: none;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+.perfil-empresa .btn-edit:hover,
+.perfil-empresa .btn-edit:focus {
+    background-color: #00675B;
 }

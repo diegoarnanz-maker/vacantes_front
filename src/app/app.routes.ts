@@ -27,7 +27,6 @@ import { EmpresaListComponent } from './Pages/Admin/empresa-list/empresa-list.co
 import { EmpresaDetailComponent } from './Pages/Admin/empresa-detail/empresa-detail.component';
 import { EmpresaFormComponent } from './Pages/Admin/empresa-form/empresa-form.component';
 import { EmpresaListDesactivadasComponent } from './Pages/Admin/empresa-list-desactivadas/empresa-list-desactivadas.component';
-import { UsuariosDashboardComponent } from './Pages/Admin/usuarios-dashboard/usuarios-dashboard.component';
 import { UsuarioListComponent } from './Pages/Admin/usuario-list/usuario-list.component';
 import { UsuarioEditComponent } from './Pages/Admin/usuario-edit/usuario-edit.component';
 import { DatosFormAdminComponent } from './Pages/Admin/datos-form-admin/datos-form-admin.component';
@@ -183,11 +182,7 @@ export const routes: Routes = [
     component: UsuarioEditComponent,
     canActivate: [adminGuard],
   },
-  {
-    path: 'usuarios/dashboard',
-    component: UsuariosDashboardComponent,
-    canActivate: [adminGuard],
-  },
+
 
   // Wildcard
   { path: '**', component: PublicHomeComponent },

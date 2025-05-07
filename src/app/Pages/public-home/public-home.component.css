@@ -1,10 +1,10 @@
-/* Contenedor principal */
+
 .vacante-list {
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
 
-/* HEADER */
+
 .header-row {
     display: flex;
     justify-content: space-between;
@@ -26,16 +26,23 @@
     font-size: small;
 }
 
-.btn-info{
-    background-color: #a5a2ce;
-    border: solid 1px #55536a;
-    font-size: small;
+.btn-info {
+    background-color: rgb(111, 168, 167);
+    border: none;
+    color: #fff;
+    transition: background 0.2s;
 }
 
-/* TÍTULO */
+.btn-info:hover,
+.btn-info:focus {
+    background-color: rgb(91, 136, 135);
+   
+}
+
+
 .title-row h2 {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 600;
     color: #333;
     display: flex;
     justify-content: center;
@@ -70,12 +77,12 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Asegura un padding interno consistente */
+
 .vacante-list .card .card__body {
     padding: 1.25rem;
 }
 
-/* Ajusta el botón detalle */
+
 .vacante-list .card__button {
     background: #5c53d4;
     color: #fff;
@@ -126,9 +133,7 @@
 @media (min-width: 1200px) {
     #vacante {
         display: flex;
-        /* por si no lo hereda */
         flex-wrap: wrap;
-        /* para que hagan filas */
         justify-content: center;
     }
 

@@ -1,10 +1,8 @@
-/* Contenedor principal */
 .vacante-list {
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
 
-/* HEADER */
 .header-row {
     display: flex;
     justify-content: space-between;
@@ -18,7 +16,6 @@
     align-items: center;
 }
 
-
 .search-group .form-control {
     max-width: 220px;
 }
@@ -27,73 +24,55 @@
     white-space: nowrap;
 }
 
-/* TÍTULO */
+
+.btn-send {
+    background-color: #013a72;
+    border-color: #003366;
+    color: #fff;
+}
+
+.btn-send:hover,
+.btn-send:focus {
+    background-color: #024b93;
+    border-color: #013365;
+}
+
+.btn-publish {
+    background-color: #00796B;
+    border-color: #00796B;
+    color: #fff;
+}
+
+.btn-publish:hover,
+.btn-publish:focus {
+    background-color: #008a7a;
+    border-color: #017a6c;
+}
+
 .title-row h2 {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 600;
     color: #333;
     display: flex;
     justify-content: center;
 }
 
-/* GRID DE CARDS */
-.row-cols-1 .col,
-.row-cols-sm-2 .col,
-.row-cols-md-2 .col {
-    margin-bottom: 1.5rem;
-}
-
-
-
-/* ESTILOS PARA VacanteCard dentro de la lista */
-
+/* Ajustes en el grid de vacantes */
 #vacante .col-auto {
     max-width: 500px;
     min-width: 500px;
-
-    
 }
-
-.vacante-list .card {
-    background: #f7f9fc;
-    border: 1px solid #e0e6ed;
-    border-radius: 8px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.vacante-list .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-/* Asegura un padding interno consistente */
-.vacante-list .card .card__body {
-    padding: 1.25rem;
-}
-
-/* Ajusta el botón detalle */
-.vacante-list .card__button {
-    background: #5c53d4;
-    color: #fff;
-}
-
-.vacante-list .card__button:hover {
-    background: #4a41b1;
-}
-
 
 @media (max-width: 768px) {
-
-.header-row {
+    .header-row {
         flex-direction: column !important;
         align-items: center;
         gap: 1rem;
         max-width: 280px;
         width: 100%;
-        
     }
 
-    /* Ocultamos la columna “vacía” (la 2ª col) */
+    /* Ocultar la columna “vacía” en móviles */
     .header-row>.col-md-4:nth-child(2) {
         display: none;
     }
@@ -107,43 +86,24 @@
         max-width: 200px;
     }
 
-
     .new-button {
         width: 100%;
         text-align: center;
     }
-   
 }
-
-@media(max-width:575) {
- 
-   
-  
-}
-
 
 @media (min-width: 1400px) {
-    .header-row{
-        display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            
-            padding-right: 22px;
+    .header-row {
+        justify-content: space-between;
+        padding-right: 22px;
+        width: 100%;
     }
 }
 
 @media (min-width: 1200px) {
     #vacante {
         display: flex;
-        /* por si no lo hereda */
         flex-wrap: wrap;
-        /* para que hagan filas */
         justify-content: center;
-    }
-
-    #vacante .col {
-        flex: 0 0 45%;
-        max-width: 45%;
     }
 }
