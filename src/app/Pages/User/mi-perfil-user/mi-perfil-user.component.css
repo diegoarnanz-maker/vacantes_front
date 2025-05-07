@@ -1,29 +1,69 @@
-.card{
-    border: 1px solid #3a6088;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    border-radius: 0.5rem;
+.perfil-user-container {
+    background-color: #fafbfd;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    height: 500px;
 }
 
-.card-header {
-    background-color: #f8f9fa;
+
+.perfil-user-container .title-row h2 {
+    color: #3a6088;
+    margin-bottom: 1.5rem;
+}
+
+
+.perfil-user-container .perfil-user-card {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 50px;
+    
+}
+
+.perfil-user-container .perfil-user-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    color: #3a6088;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.table th,
-.table td {
-    padding: 0.75rem 1.25rem;
-    vertical-align: middle;
+
+.perfil-user-container .table {
+    margin-bottom: 0;
 }
 
-.card-footer {
-    background-color: white;
+.perfil-user-container .table th,
+.perfil-user-container .table td {
+    padding: 0.75rem 1.25rem;
+    vertical-align: middle;
+    color: #555;
     border-top: none;
+}
+
+.perfil-user-container .table tbody tr:nth-child(even) {
+    background-color: #f9fbfd;
+}
+
+
+.perfil-user-container .perfil-user-footer {
+    
+    
     padding: 1rem;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+
+.perfil-user-container .btn-edit {
+    background-color: #00796B;
+    border: none;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+.perfil-user-container .btn-edit:hover,
+.perfil-user-container .btn-edit:focus {
+    background-color: #00675B;
 }

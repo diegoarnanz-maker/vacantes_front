@@ -1,0 +1,105 @@
+
+.usuario-list {
+    padding-bottom: 1rem;
+}
+
+.usuario-list .table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #2e2e2e;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.usuario-list .table thead.table-light th {
+    background-color: #013a72 !important;
+    color: #fff !important;
+}
+
+.usuario-list .table-light th {
+    color: #fff;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+
+.usuario-list .table-hover tbody tr:hover {
+    background-color: #e6f2fa;
+}
+
+
+.usuario-list .table td {
+    padding: 0.65rem 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.usuario-list .table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.usuario-list .btn-secondary {
+    background-color: #013a72;
+    border-color: #003366;
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.usuario-list .btn-secondary:hover,
+.usuario-list .btn-secondary:focus {
+    background-color: #024b93;
+    border-color: #013365;
+}
+
+
+.usuario-list .btn-success {
+    background-color: #00796B;
+    border-color: #00796B;
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.usuario-list .btn-success:hover,
+.usuario-list .btn-success:focus {
+    background-color: #008a7a;
+    border-color: #017a6c;
+}
+
+
+.usuario-list .btn-disable-user {
+    background-color: #3c3c3c;
+    border: none;
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    transition: background 0.2s;
+}
+
+.usuario-list .btn-disable-user:hover,
+.usuario-list .btn-disable-user:focus {
+    background-color: #5c5c5c;
+}
+
+.usuario-list .btn-edit {
+    background-color: rgb(111, 168, 167);
+    border: none;
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    transition: background 0.2s;
+}
+
+.usuario-list .btn-edit:hover,
+.usuario-list .btn-edit:focus {
+    background-color: rgb(91, 136, 135);
+}

@@ -1,73 +1,59 @@
-footer {
+.footer {
     width: 100%;
-    background-color: #f8f9fa;
-    color: #343a40;
-    padding: 1rem 5rem;
-    bottom: 0;
+    
+    background-color: #14759c;
+    /* azul InfoJobs */
+    color: #ffffff;
+    padding: 2rem 5rem;
 }
 
-
-footer h5 {
+.footer h5 {
     font-weight: 600;
     margin-bottom: 1rem;
+    color: #ffffff;
 }
 
-footer a {
-    color: #343a40;
+.footer a {
+    color: #ffffff;
     text-decoration: none;
 }
 
-footer a:hover {
+.footer a:hover {
     text-decoration: underline;
 }
 
-.container {
-    max-width: 1200px;
+.footer .container {
+    max-width: 1000px;
+    margin-top: 30px;
 }
 
-.social-icons a {
-    margin-right: 0.5rem;
-    font-size: 1.25rem;
+.footer .social-icons {
+    margin-right: 20px;
 }
 
-.footer-logo {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    margin-bottom: 1rem;
+.footer .social-icons a {
+    margin-left: 0.75rem;
+    font-size: 1.5rem;
+    color: #ffffff;
+    transition: opacity 0.2s;
 }
 
+.footer .social-icons a:hover {
+    opacity: 0.7;
+}
 
-/* Media query para pantallas pequeñas */
-@media (max-width: 772px) {
-      .footer .row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  /* 2) Haz que cada "col" ocupe ancho completo, pero con un max‑width para no alargar demasiado */
-  .footer .row > div {
-    flex: 0 0 100% !important;
-    max-width: 400px;  
-    margin-bottom: 1.5rem;
-  }
-
-  
-  .footer ul {
-    display: inline-block;
-    justify-content: center;
-    margin: 0 auto 1rem;
-    padding-left: 0px;
-    text-align: center;    
-  }
-    
-    .footer-logo{
-        display: none;
+/* ------- Responsive ------- */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 2rem;
+        text-align: center;
     }
-    .social-icons {
-        margin: 1rem auto 0 !important;
+
+    .footer .row.gy-4 {
+        justify-content: center;
+    }
+
+    .footer .social-icons {
+        margin-top: 1rem;
     }
 }

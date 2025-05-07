@@ -47,13 +47,13 @@
 
         <!-- Botones de acción -->
         <div class="d-flex justify-content-center gap-2 pb-4">
-            <button class="btn btn-secondary btn-sm" [routerLink]="['/solicitudes-company/', solicitudSelect.idVacante]">
+            <button class="btn btn-back btn-sm" [routerLink]="['/solicitudes-company/', solicitudSelect.idVacante]">
                 Volver
             </button>
-            <button class="btn btn-primary btn-sm" (click)="adjudicar()">
+            <button class="btn btn-edit btn-sm" (click)="adjudicar()">
                 Adjudicar
             </button>
-            <button class="btn btn-danger btn-sm" (click)="rechazar()">
+            <button class="btn btn-delete btn-sm" (click)="rechazar()">
                 Rechazar
             </button>
         </div>

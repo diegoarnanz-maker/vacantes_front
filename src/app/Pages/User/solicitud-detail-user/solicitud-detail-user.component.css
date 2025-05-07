@@ -1,23 +1,18 @@
-.container {
 
-    padding-top: 30px;
-}
-
-.solicitud-detail .card {
+.solicitud-detail-public .card {
     background: #f5f7fa;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
 }
 
-.solicitud-detail .solicitud-card–compact {
+
+.solicitud-detail-public .solicitud-card–compact {
     max-width: 600px;
-    /* prueba 500px, 480px, 450px… hasta que te guste */
     width: 100%;
-    /* para que sea responsive hasta ese máximo */
-    border: solid 2px #555555;
+    border: solid 2px #012142;
 }
 
-.solicitud-detail .image-wrapper {
+.solicitud-detail-public .image-wrapper {
     width: 100px;
     height: 100px;
     overflow: hidden;
@@ -26,34 +21,60 @@
     justify-content: center;
 }
 
-.solicitud-detail .image-wrapper img {
+.solicitud-detail-public .image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border: solid 1px #9b9b9b;
 }
 
-#titulo {
-    background-color: #555555;
-    border: solid 2px #555555;
-    color: white;
-
+.solicitud-detail-public #titulo {
+    background-color: #013a72;
+    border: solid 2px #012142;
+    color: #fff;
 }
 
-.solicitud-detail h2 {
+
+.solicitud-detail-public h2 {
     font-size: 1.25rem;
 }
 
-.solicitud-detail h5 {
+.solicitud-detail-public h5 {
     font-size: 0.9rem;
 }
 
-.solicitud-detail h6 {
+.solicitud-detail-public h6 {
     font-size: 0.85rem;
 }
 
-.solicitud-detail p,
-.solicitud-detail small {
+.solicitud-detail-public p,
+.solicitud-detail-public small {
     line-height: 1.3;
 }
 
+
+.solicitud-detail-public .btn-back {
+    background-color: #7c7c7c;
+    border: none;
+    color: #fff;
+    transition: background 0.2s;
+    width: 70px;
+}
+
+.solicitud-detail-public .btn-back:hover,
+.solicitud-detail-public .btn-back:focus {
+    background-color: #5f5f5f;
+}
+
+
+.solicitud-detail-public .btn-edit {
+    background-color: #2a2a2a;
+    border: none;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+.solicitud-detail-public .btn-edit:hover,
+.solicitud-detail-public .btn-edit:focus {
+    background-color: #525151;
+}

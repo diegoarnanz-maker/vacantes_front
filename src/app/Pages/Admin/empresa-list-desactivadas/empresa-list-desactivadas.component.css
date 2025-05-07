@@ -1,0 +1,46 @@
+
+.empresa-list-desactivadas .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    margin: 40px auto 1rem;
+}
+
+.empresa-list-desactivadas .btn-outline-secondary {
+    background-color: transparent;
+    border: 1px solid #013a72;
+    color: #013a72;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.empresa-list-desactivadas .btn-outline-secondary:hover,
+.empresa-list-desactivadas .btn-outline-secondary:focus {
+    background-color: #024b93;
+    border-color: #013365;
+    color: #fff;
+}
+
+.empresa-list-desactivadas .btn-success {
+    background-color: #00796B;
+    border-color: #00796B;
+    color: #fff;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.empresa-list-desactivadas .btn-success:hover,
+.empresa-list-desactivadas .btn-success:focus {
+    background-color: #008a7a;
+    border-color: #017a6c;
+}
+
+.empresa-list-desactivadas .card.h-100.shadow-sm {
+    background: #ffffffe0;
+    border: 1px solid #012142;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.empresa-list-desactivadas .card.h-100.shadow-sm:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

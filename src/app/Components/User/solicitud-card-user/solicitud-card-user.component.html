@@ -1,28 +1,31 @@
-<div class="card">
-    <figure class="card__image-container">
-        <img class="card__image" [src]="miSolicitud.imagenVacante" alt="Imagen de {{ miSolicitud.nombreVacante }}" />
-        <figcaption class="card__company">
+
+<div class="solicitud-card">
+    <figure class="solicitud-card__image-container">
+        <img class="solicitud-card__image" [src]="miSolicitud.imagenVacante"
+            alt="Imagen de {{ miSolicitud.nombreVacante }}" />
+        <figcaption class="solicitud-card__company">
             {{ miSolicitud.nombreEmpresa }}
         </figcaption>
     </figure>
 
-    <section class="card__body">
-        <h2 class="card__title">{{ miSolicitud.nombreVacante}}</h2>
-        <h3 class="card__subtitle">{{ miSolicitud.categoriaVacante }}</h3>
-        <p class="card__details">
+    <section class="solicitud-card__body">
+        <h2 class="solicitud-card__title">{{ miSolicitud.nombreVacante }}</h2>
+        <h3 class="solicitud-card__subtitle">{{ miSolicitud.categoriaVacante }}</h3>
+
+        <p class="solicitud-card__details">
             {{ miSolicitud.detalleVacante }}
         </p>
-        <p class="card__salary">
+        <p class="solicitud-card__salary">
             Salario: {{ miSolicitud.salarioVacante }}
         </p>
-        <p class="card__estado">
-            Estado solicitud: {{ estadoSolicitud}}
+        <p class="solicitud-card__estado">
+            Estado solicitud: {{ estadoSolicitud }}
         </p>
-        <p class="card__fecha small">
+        <p class="solicitud-card__fecha small">
             Fecha solicitud: {{ miSolicitud.fecha }}
         </p>
 
-        <button class="card__button" [routerLink]="['/solicitud-user/detail/', miSolicitud.idSolicitud]">
+        <button class="solicitud-card__button" [routerLink]="['/solicitud-user/detail/', miSolicitud.idSolicitud]">
             Detalle
         </button>
     </section>

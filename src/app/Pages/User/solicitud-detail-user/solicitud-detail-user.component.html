@@ -1,23 +1,14 @@
-@if (solicitudSelect) {
-<div class="solicitud-detail container my-4">
+<div class="solicitud-detail-public container my-4">
   <div class="card p-4 mx-auto solicitud-card–compact">
     <div class="d-flex align-items-center mb-3 pt-3 ps-3">
       <div class="image-wrapper me-2">
         @if (solicitudSelect.imagenVacante) {
-        <img
-          [src]="solicitudSelect.imagenVacante"
-          [alt]="'Logo de ' + solicitudSelect.nombreEmpresa"
-          class="rounded-circle"
-        />
+        <img [src]="solicitudSelect.imagenVacante" [alt]="'Logo de ' + solicitudSelect.nombreEmpresa"
+          class="rounded-circle" />
         } @else {
-        <img
-          src="assets/img/placeholder.jpg"
-          alt="Imagen no disponible"
-          class="rounded-circle"
-        />
+        <img src="assets/img/placeholder.jpg" alt="Imagen no disponible" class="rounded-circle" />
         }
       </div>
-
       <div class="ps-2">
         <h5 class="mb-0 small">{{ solicitudSelect.nombreEmpresa }}</h5>
       </div>
@@ -45,48 +36,32 @@
     </div>
 
     <div class="mb-3 small ps-3">
-      <span
-        ><strong>Salario:</strong> {{ solicitudSelect.salarioVacante }} $</span
-      ><br />
+      <span><strong>Salario:</strong> {{ solicitudSelect.salarioVacante }} $</span>
     </div>
 
     <div class="mb-3 small ps-3">
-      <span
-        ><strong>Detalles Usuario:</strong>
-        {{ solicitudSelect.comentarios }}</span
-      ><br />
+      <span><strong>Detalles Usuario:</strong> {{ solicitudSelect.comentarios }}</span>
     </div>
 
     <div class="mb-3 small ps-3">
-      <span><strong>Curriculum:</strong> {{ solicitudSelect.curriculum }}</span
-      ><br />
+      <span><strong>Currículum:</strong> {{ solicitudSelect.curriculum }}</span>
     </div>
 
     <div class="mb-3 small ps-3">
-      <span><strong>Archivo:</strong> {{ solicitudSelect.archivo }}</span
-      ><br />
+      <span><strong>Archivo:</strong> {{ solicitudSelect.archivo }}</span>
     </div>
 
     <div class="mb-3 small ps-3">
-      <span><strong>Estado:</strong> {{ estadoSolicitud }}</span
-      ><br />
+      <span><strong>Estado:</strong> {{ estadoSolicitud }}</span>
     </div>
 
     <div class="d-flex justify-content-center gap-2 pb-4">
-      <button
-        class="btn btn-secondary btn-sm"
-        [routerLink]="['/solicitudes-user']"
-      >
+      <button class="btn btn-back btn-sm" [routerLink]="['/solicitudes-user']">
         Volver
       </button>
-      <button class="btn btn-primary btn-sm" (click)="cancelarSolicitud()">
+      <button class="btn btn-edit btn-sm" (click)="cancelarSolicitud()">
         Cancelar
       </button>
     </div>
   </div>
 </div>
-} @else {
-<div class="text-center mt-5">
-  <p class="text-muted">Cargando solicitud...</p>
-</div>
-}

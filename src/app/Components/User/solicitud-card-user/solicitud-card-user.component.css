@@ -1,39 +1,42 @@
+/* Contenedor principal */
 :host {
     display: block;
     max-width: 450px;
-    margin: 0.5rem;
-
+    margin: 0.5rem auto;
 }
 
-.card {
-    background: #fff;
+/* Tarjeta */
+.solicitud-card {
+    background: #ffffffe0;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #012142;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 500px;
-    margin: 0 auto;
-
+    height: 450px;
 }
 
-.card__image-container {
+/* Imagen */
+.solicitud-card__image-container {
     position: relative;
     width: 100%;
     padding-top: 40%;
     background: #f5f5f5;
 }
 
-.card__image {
+.solicitud-card__image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-bottom: 1px solid #012142;
 }
 
-.card__company {
+/* Empresa */
+.solicitud-card__company {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -41,10 +44,12 @@
     padding: 0.25rem 0.5rem;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #333;
+    color: #252525;
+    border: 1px solid #323232ca;
 }
 
-.card__body {
+/* Cuerpo */
+.solicitud-card__body {
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -52,7 +57,8 @@
     min-height: 0;
 }
 
-.card__title {
+/* Título y subtítulo */
+.solicitud-card__title {
     margin: 0;
     font-size: 1.25rem;
     font-weight: 700;
@@ -60,7 +66,7 @@
     text-align: center;
 }
 
-.card__subtitle {
+.solicitud-card__subtitle {
     margin: 0.25rem 0 0.75rem;
     font-size: 0.9rem;
     font-weight: 500;
@@ -68,7 +74,8 @@
     text-align: center;
 }
 
-.card__details {
+/* Detalles */
+.solicitud-card__details {
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
@@ -79,16 +86,28 @@
     padding-right: 0.5rem;
 }
 
-.card__salary {
+.solicitud-card__salary {
     font-weight: 600;
     margin-bottom: 1rem;
     color: #333;
 }
 
-.card__button {
+.solicitud-card__estado {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.solicitud-card__fecha {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* Botón Detalle en turquesa */
+.solicitud-card__button {
     align-self: center;
     padding: 0.5rem 1.25rem;
-    background: #5c53d4;
+    background: rgb(111, 168, 167);
+    /* turquesa */
     border: none;
     border-radius: 4px;
     color: #fff;
@@ -97,28 +116,15 @@
     transition: background 0.2s;
 }
 
-.card__button:hover {
-    background: #4a41b1;
+.solicitud-card__button:hover {
+    background: rgb(91, 136, 135);
+    /* turquesa oscuro al hover */
 }
 
-.card__button-container {
-    display: flex;
-    gap: 0.6rem;
-    justify-content: center;
-    margin-top: auto;
-}
-
-
-.card__button-container .card__button {
-    flex: 1;
-    text-align: center;
-    max-width: 150px;
-}
-
+/* Responsive */
 @media (max-width: 576px) {
-    .card {
+    .solicitud-card {
         max-width: 400px;
-        min-width: 400px;
-
+        height: auto;
     }
 }

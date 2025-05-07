@@ -1,11 +1,10 @@
-/* Contenedor gris de toda la página */
+
 .form-wrapper {
     background-color: #f2f5f9;
     padding: 3rem 1rem;
     min-height: 100vh;
 }
 
-/* Tarjeta blanca/ligeramente gris con borde y sombra suave */
 .form-card {
     background-color: #ffffff;
     border: 1px solid #d9e1e8;
@@ -16,7 +15,6 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Título centrado, más grande y oscuro */
 .form-title {
     font-size: 1.5rem;
     font-weight: 600;
@@ -24,7 +22,6 @@
     margin-bottom: 1.5rem;
 }
 
-/* Label de cada campo, gris oscuro */
 .form-label {
     display: block;
     font-size: 0.875rem;
@@ -33,7 +30,6 @@
     margin-bottom: 0.25rem;
 }
 
-/* Inputs y textarea con borde gris y radio suave */
 .form-control {
     width: 100%;
     font-size: 0.875rem;
@@ -46,7 +42,7 @@
     box-sizing: border-box;
 }
 
-/* Textareas permiten tamaño vertical */
+
 .form-control[type="text"],
 .form-control[type="number"],
 .form-control[type="date"],
@@ -55,25 +51,24 @@ textarea.form-control {
     resize: vertical;
 }
 
-/* Placeholder gris claro */
+
 .form-control::placeholder {
     color: #a3b7c4;
 }
 
-/* Inputs deshabilitados (modo “previo”) */
+
 .form-control:disabled {
     background-color: #f5f7fa;
     color: #90a3b4;
 }
 
-/* Mensajes de error en rojo suave */
 .error {
     color: #d92d20;
     font-size: 0.75rem;
     margin-top: 0.25rem;
 }
 
-/* Checkbox alineados y tamaño estándar */
+
 .form-check {
     display: flex;
     align-items: center;
@@ -91,7 +86,7 @@ textarea.form-control {
     color: #475467;
 }
 
-/* Espaciados utilitarios */
+
 .mb-3 {
     margin-bottom: 1rem;
 }
@@ -105,10 +100,10 @@ textarea.form-control {
     margin-right: auto;
 }
 
-/* Botones: Volver gris oscuro, Guardar morado */
+
 .btn-secondary {
-    background-color: #475667;
-    border-color: #475667;
+    background-color: #565c63;
+    border-color: #52585f;
     color: #ffffff;
     font-size: 0.875rem;
     padding: 0.5rem 1.25rem;
@@ -117,8 +112,8 @@ textarea.form-control {
 }
 
 .btn-primary {
-    background-color: #6c5dd3;
-    border-color: #6c5dd3;
+    background-color: #013a72;
+    border-color: #003366;
     color: #ffffff;
     font-size: 0.875rem;
     padding: 0.5rem 1.25rem;

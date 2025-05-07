@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="datos-form-user-container container my-5">
   <div class="title-row mb-4 text-center">
     <h2 class="fw-bold">Modificar Datos</h2>
   </div>
@@ -9,20 +9,17 @@
       <span class="visually-hidden">Cargando...</span>
     </div>
   </div>
-  } @else if (errorMensaje) {
+  }
+  @else if (errorMensaje) {
   <div class="alert alert-danger text-center">{{ errorMensaje }}</div>
-  } @else if (usuario) {
-  <div class="card mx-auto" style="max-width: 500px">
-    <div class="card-body">
+  }
+  @else if (usuario) {
+  <div class="datos-user-card card mx-auto" style="max-width: 500px">
+    <div class="datos-user-body card-body">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="mb-3">
+        <div class="form-group mb-3">
           <label for="nombre" class="form-label">Nombre</label>
-          <input
-            type="text"
-            id="nombre"
-            class="form-control"
-            formControlName="nombre"
-          />
+          <input type="text" id="nombre" class="form-control" formControlName="nombre" />
           @if (form.get('nombre')?.invalid && form.get('nombre')?.touched) {
           <div class="text-danger small">
             Nombre requerido (mín. 2 caracteres)
@@ -30,36 +27,21 @@
           }
         </div>
 
-        <div class="mb-3">
+        <div class="form-group mb-3">
           <label for="apellidos" class="form-label">Apellidos</label>
-          <input
-            type="text"
-            id="apellidos"
-            class="form-control"
-            formControlName="apellidos"
-          />
-          @if (form.get('apellidos')?.invalid && form.get('apellidos')?.touched)
-          {
+          <input type="text" id="apellidos" class="form-control" formControlName="apellidos" />
+          @if (form.get('apellidos')?.invalid && form.get('apellidos')?.touched) {
           <div class="text-danger small">
             Apellidos requeridos (mín. 2 caracteres)
           </div>
           }
         </div>
 
-        <div class="text-center mt-4 d-flex justify-content-center gap-3">
-          <button
-            class="btn btn-primary btn-sm px-4"
-            type="submit"
-            [disabled]="form.invalid"
-          >
+        <div class="form-actions d-flex justify-content-center gap-3 mt-4">
+          <button type="submit" class="btn btn-save btn-sm px-4" [disabled]="form.invalid">
             Guardar Cambios
           </button>
-
-          <button
-            type="button"
-            class="btn btn-secondary btn-sm px-4"
-            (click)="onCancelar()"
-          >
+          <button type="button" class="btn btn-cancel btn-sm px-4" (click)="onCancelar()">
             Cancelar
           </button>
         </div>

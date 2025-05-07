@@ -1,71 +1,76 @@
+
 .registro-container {
-    width: 300px;
-    margin: 50px auto;
-    /* Centra el formulario en la página */
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #fafbfd;
+
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.registro-container h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
+
+.registro-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
-.form-group {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-}
 
-.form-group label {
+.registro-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem;
+    color: #3a6088;
     font-weight: 600;
-    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.form-group input {
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+.registro-form .form-group label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
 }
 
-.form-group input.is-invalid {
-    border-color: #e74c3c;
-    /* Color de borde para estado inválido */
+.registro-form .form-control {
+    border: 1px solid #e0e0e0;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
 }
 
-.error {
-    color: #e74c3c;
-    font-size: 13px;
-    margin-top: 5px;
+
+.registro-form .error {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
 }
 
-.button-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.btn-cancel,
-.btn-submit {
-    padding: 10px 16px;
-    font-size: 14px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
 
 .btn-cancel {
-    background-color: #7f8c8d;
-    /* gris */
+    background-color: #7c7c7c;
+    border: none;
     color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background 0.2s;
+}
+
+.btn-cancel:hover,
+.btn-cancel:focus {
+    background-color: #5f5f5f;
 }
 
 .btn-submit {
-    background-color: #6c63ff;
-    /* morado/azulado */
+    background-color: #00796B;
+    border: none;
     color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background 0.2s;
+}
+
+.btn-submit:hover,
+.btn-submit:focus {
+    background-color: #00675B;
 }
