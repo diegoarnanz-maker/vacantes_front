@@ -250,23 +250,15 @@
     }
 }
 
-/* Pantallas medianas (769px - 1199px) */
-@media (min-width: 769px) and (max-width: 1199px) {
-    #vacante .col-auto {
-        flex: 0 0 calc(50% - 0.5rem);
-        max-width: calc(50% - 0.5rem);
-    }
-}
-
-/* Pantallas grandes (1200px - 1399px) */
-@media (min-width: 1200px) and (max-width: 1399px) {
+/* Desktop estándar (1025px - 1399px) - 3 tarjetas por fila */
+@media (min-width: 1025px) and (max-width: 1399px) {
     #vacante .col-auto {
         flex: 0 0 calc(33.333% - 0.67rem);
         max-width: calc(33.333% - 0.67rem);
     }
 }
 
-/* Pantallas muy grandes (1400px+) */
+/* Pantallas muy grandes (1400px+) - 4 tarjetas por fila */
 @media (min-width: 1400px) {
     .header-row {
         display: flex;

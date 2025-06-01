@@ -13,7 +13,7 @@
 
         <div class="col-6 col-md-3 col-search">
             <div class="search-group">
-                <input type="text" class="form-control" placeholder="Buscar por nombre" [(ngModel)]="filtroNombre"
+                <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="filtroNombre"
                     name="nombre" />
                 <button class="btn btn-info ms-2" (click)="buscarPorNombre()">
                     Enviar
@@ -23,7 +23,7 @@
 
         <div class="col-6 col-md-3 col-search">
             <div class="search-group">
-                <input type="text" class="form-control" placeholder="Buscar por Empresa" [(ngModel)]="filtroEmpresa"
+                <input type="text" class="form-control" placeholder="Empresa" [(ngModel)]="filtroEmpresa"
                     name="nombreEmpresa" />
                 <button class="btn btn-info ms-2" (click)="buscarPorNombreEmpresa()">
                     Enviar
@@ -33,7 +33,7 @@
         
         <div class="col-6 col-md-3 col-search">
             <div class="search-group">
-                <input type="text" class="form-control" placeholder="Buscar por Categoria" [(ngModel)]="filtroCategoria"
+                <input type="text" class="form-control" placeholder="Categoría" [(ngModel)]="filtroCategoria"
                     name="nombreCategoria" />
                 <button class="btn btn-info ms-2" (click)="buscarPorNombreCategoria()">
                     Enviar
@@ -43,7 +43,7 @@
 
         <div class="col-6 col-md-3 col-search">
             <div class="search-group">
-                <input type="number" class="form-control" placeholder="Buscar por salario" [(ngModel)]="filtroSalario"
+                <input type="number" class="form-control" placeholder="Salario mín." [(ngModel)]="filtroSalario"
                     name="salario" />
                 <button class="btn btn-info ms-2" (click)="buscarPorSalario()">
                     Enviar
@@ -54,7 +54,7 @@
 
     <!-- === TITULO debajo, centrado === -->
     <div class="title-row mb-5 text-center mt-5">
-        <h2 class="mb-0">Empleos disponibles</h2>
+        <h2 class="mb-0">Vacantes</h2>
     </div>
 
     <!-- Lista de cards -->
