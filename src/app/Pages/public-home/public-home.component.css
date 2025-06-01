@@ -4,32 +4,68 @@
     padding-bottom: 2rem;
 }
 
-/* HEADER */
+/* Botón de filtros móvil */
+.mobile-filter-toggle {
+    position: relative;
+}
+
+.mobile-filter-toggle .btn {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid #5c53d4;
+    color: #5c53d4;
+}
+
+.mobile-filter-toggle .btn:hover {
+    background-color: #5c53d4;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(92, 83, 212, 0.3);
+}
+
+.mobile-filter-toggle .btn i {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* HEADER - Layout original para desktop */
 .header-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     margin: 0 auto;
-    
-   
+}
+
+.col-search {
+    display: flex;
+    justify-content: center;
 }
 
 .search-group {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
 }
-
 
 .search-group .form-control {
     max-width: 180px;
-    font-size: small;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.search-group .btn {
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
 }
 
 .btn-info{
     background-color: #a5a2ce;
     border: solid 1px #55536a;
-    font-size: small;
 }
 
 /* TÍTULO */
@@ -42,22 +78,20 @@
 }
 
 /* GRID DE CARDS */
-.row-cols-1 .col,
-.row-cols-sm-2 .col,
-.row-cols-md-2 .col {
-    margin-bottom: 1.5rem;
+#vacante {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }
-
-
-
-/* ESTILOS PARA VacanteCard dentro de la lista */
 
 #vacante .col-auto {
-    max-width: 500px;
-    min-width: 500px;
-    
-    
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
 }
+
+/* ESTILOS PARA VacanteCard dentro de la lista */
 .vacante-list .card {
     background: #f7f9fc;
     border: 1px solid #e0e6ed;
@@ -85,55 +119,165 @@
     background: #4a41b1;
 }
 
+/* RESPONSIVE DESIGN */
 
-@media (max-width: 768px) {
-
-    .header-row {
-        flex-direction: column !important;
-        align-items: center;
-        gap: 1rem;
-        max-width: 500px;
-        width: 100%;
-
+/* Tablets (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .search-group .form-control {
+        max-width: 160px;
+        font-size: 0.85rem;
+        padding: 0.45rem 0.65rem;
     }
 
+    .search-group .btn {
+        padding: 0.45rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .title-row h2 {
+        font-size: 1.8rem;
+    }
+
+    #vacante .col-auto {
+        flex: 0 0 calc(50% - 0.5rem);
+        max-width: calc(50% - 0.5rem);
+    }
+}
+
+/* Móviles (hasta 767px) */
+@media (max-width: 767px) {
+    .vacante-list {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    /* Ocultar filtros por defecto en móvil */
+    .header-row {
+        display: none;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.4s ease-in-out;
+        margin-bottom: 0 !important;
+    }
+
+    /* Mostrar filtros cuando se activa */
+    .header-row.show-mobile {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        opacity: 1;
+        max-height: 500px;
+        margin-bottom: 2rem !important;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+    }
+
+    .col-search {
+        justify-content: stretch;
+    }
 
     .search-group {
+        flex-direction: column;
+        gap: 0.5rem;
         width: 100%;
-        justify-content: center;
     }
 
     .search-group .form-control {
-        max-width: 200px;
+        width: 100%;
+        max-width: none;
+        font-size: 0.85rem;
+        padding: 0.6rem 0.75rem;
+        text-align: center;
+        border-radius: 6px;
     }
 
+    .search-group .btn {
+        width: 100%;
+        padding: 0.6rem;
+        font-size: 0.8rem;
+        text-align: center;
+        border-radius: 6px;
+    }
+
+    .title-row {
+        margin-top: 1rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .title-row h2 {
+        font-size: 1.6rem;
+    }
+
+    #vacante {
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    #vacante .col-auto {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
 
-@media(max-width:575) {}
+/* Móviles muy pequeños (hasta 480px) */
+@media (max-width: 480px) {
+    .header-row.show-mobile {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 1.2rem;
+    }
 
+    .search-group .form-control {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
 
+    .search-group .btn {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    .title-row h2 {
+        font-size: 1.4rem;
+    }
+
+    .mobile-filter-toggle .btn {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Pantallas medianas (769px - 1199px) */
+@media (min-width: 769px) and (max-width: 1199px) {
+    #vacante .col-auto {
+        flex: 0 0 calc(50% - 0.5rem);
+        max-width: calc(50% - 0.5rem);
+    }
+}
+
+/* Pantallas grandes (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    #vacante .col-auto {
+        flex: 0 0 calc(33.333% - 0.67rem);
+        max-width: calc(33.333% - 0.67rem);
+    }
+}
+
+/* Pantallas muy grandes (1400px+) */
 @media (min-width: 1400px) {
     .header-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-
         padding-right: 22px;
     }
-}
 
-@media (min-width: 1200px) {
-    #vacante {
-        display: flex;
-        /* por si no lo hereda */
-        flex-wrap: wrap;
-        /* para que hagan filas */
-        justify-content: center;
-    }
-
-    #vacante .col {
-        flex: 0 0 45%;
-        max-width: 45%;
+    #vacante .col-auto {
+        flex: 0 0 calc(25% - 0.75rem);
+        max-width: calc(25% - 0.75rem);
     }
 }

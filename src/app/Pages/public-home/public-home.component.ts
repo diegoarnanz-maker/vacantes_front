@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class PublicHomeComponent {
 
-
   private serviceVacante = inject(VacanteService);
 
   vacantes: VacanteResponse[];
@@ -26,6 +25,7 @@ export class PublicHomeComponent {
   filtroSalario: number;
 
   isLoading: boolean;
+  mostrarFiltros: boolean;
 
   constructor() {
     this.vacantes = [];
@@ -37,6 +37,11 @@ export class PublicHomeComponent {
     this.filtroSalario = 0;
 
     this.isLoading = true;
+    this.mostrarFiltros = false;
+  }
+
+  toggleFiltros(): void {
+    this.mostrarFiltros = !this.mostrarFiltros;
   }
   
   ngOnInit():void {
@@ -150,7 +155,5 @@ export class PublicHomeComponent {
       }
     });
   }
-
-
 
 }

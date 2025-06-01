@@ -1,8 +1,15 @@
 <div class="container vacante-list my-5">
 
-    <!-- === HEADER: row de 3 cols === -->
-    <div class="row align-items-center mb-4 header-row">
+    <!-- Botón para mostrar filtros en móvil -->
+    <div class="mobile-filter-toggle d-md-none mb-3">
+        <button class="btn btn-outline-primary w-100" (click)="toggleFiltros()">
+            <i class="bi" [class]="mostrarFiltros ? 'bi-funnel-fill' : 'bi-funnel'"></i>
+            {{ mostrarFiltros ? 'Ocultar Filtros' : 'Mostrar Filtros' }}
+        </button>
+    </div>
 
+    <!-- === HEADER: Filtros === -->
+    <div class="row align-items-center mb-4 header-row" [class.show-mobile]="mostrarFiltros">
 
         <div class="col-6 col-md-3 col-search">
             <div class="search-group">
@@ -12,40 +19,37 @@
                     Enviar
                 </button>
             </div>
-
         </div>
 
-    <div class="col-6 col-md-3 col-search">
-        <div class="search-group">
-            <input type="text" class="form-control" placeholder="Buscar por Empresa" [(ngModel)]="filtroEmpresa"
-                name="nombreEmpresa" />
-            <button class="btn btn-info ms-2" (click)="buscarPorNombreEmpresa()">
-                Enviar
-            </button>
+        <div class="col-6 col-md-3 col-search">
+            <div class="search-group">
+                <input type="text" class="form-control" placeholder="Buscar por Empresa" [(ngModel)]="filtroEmpresa"
+                    name="nombreEmpresa" />
+                <button class="btn btn-info ms-2" (click)="buscarPorNombreEmpresa()">
+                    Enviar
+                </button>
+            </div>
         </div>
-    
-    </div>
-    
-    <div class="col-6 col-md-3 col-search">
-        <div class="search-group">
-            <input type="text" class="form-control" placeholder="Buscar por Categoria" [(ngModel)]="filtroCategoria"
-                name="nombreCategoria" />
-            <button class="btn btn-info ms-2" (click)="buscarPorNombreCategoria()">
-                Enviar
-            </button>
+        
+        <div class="col-6 col-md-3 col-search">
+            <div class="search-group">
+                <input type="text" class="form-control" placeholder="Buscar por Categoria" [(ngModel)]="filtroCategoria"
+                    name="nombreCategoria" />
+                <button class="btn btn-info ms-2" (click)="buscarPorNombreCategoria()">
+                    Enviar
+                </button>
+            </div>
         </div>
-    
-    </div>
-    <div class="col-6 col-md-3 col-search">
-        <div class="search-group">
-            <input type="number" class="form-control" placeholder="Buscar por nombre" [(ngModel)]="filtroSalario"
-                name="salario" />
-            <button class="btn btn-info ms-2" (click)="buscarPorSalario()">
-                Enviar
-            </button>
+
+        <div class="col-6 col-md-3 col-search">
+            <div class="search-group">
+                <input type="number" class="form-control" placeholder="Buscar por salario" [(ngModel)]="filtroSalario"
+                    name="salario" />
+                <button class="btn btn-info ms-2" (click)="buscarPorSalario()">
+                    Enviar
+                </button>
+            </div>
         </div>
-    
-    </div>
     </div>
 
     <!-- === TITULO debajo, centrado === -->
@@ -80,8 +84,6 @@
         No hay vacantes publicadas.
     </p>
     }
-
-
 
 </div>
 
