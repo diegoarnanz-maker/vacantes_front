@@ -1,0 +1,59 @@
+
+.datos-form-user-container {
+    background-color: #fafbfd;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    height: 500px;
+}
+
+
+.datos-form-user-container .title-row h2 {
+    color: #3a6088;
+    margin-bottom: 1.5rem;
+}
+
+
+.datos-form-user-container .datos-user-card {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 50px;
+}
+
+
+.datos-form-user-container .datos-user-body .form-control {
+    border: 1px solid #e0e0e0;
+    border-radius: 0.25rem;
+}
+
+
+.datos-form-user-container .form-actions {
+    padding-top: 0.5rem;
+}
+
+.datos-form-user-container .btn-save {
+    background-color: #00796B;
+    border: none;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+.datos-form-user-container .btn-save:hover,
+.datos-form-user-container .btn-save:focus {
+    background-color: #00675B;
+}
+
+
+.datos-form-user-container .btn-cancel {
+    background-color: #7c7c7c;
+    border: none;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+.datos-form-user-container .btn-cancel:hover,
+.datos-form-user-container .btn-cancel:focus {
+    background-color: #5f5f5f;
+}

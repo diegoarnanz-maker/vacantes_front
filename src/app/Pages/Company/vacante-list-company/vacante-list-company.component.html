@@ -1,13 +1,13 @@
 <div class="container vacante-list my-5">
 
-    <!-- === HEADER: row de 3 cols === -->
+  
     <div class="row align-items-center mb-4 header-row">
 
         
         <div class="col-md-4 col-search">
             <div class="search-group">
                 <input type="text" class="form-control" placeholder="Buscar por nombre" [(ngModel)]="filtroNombre" name="nombre" />
-                <button class="btn btn-danger ms-2" (click)="buscarPorNombre()">
+                <button class="btn btn-send ms-2" (click)="buscarPorNombre()">
                     Enviar
                 </button>
             </div>
@@ -18,18 +18,18 @@
 
         
         <div class="col-md-4 text-end">
-            <button class="btn btn-success new-button" [routerLink]="['/vacante-form/company']">
+            <button class="btn btn-publish new-button" [routerLink]="['/vacante-form/company']">
                 Publicar nueva vacante +
             </button>
         </div>
     </div>
 
-    <!-- === TITULO debajo, centrado === -->
+   
     <div class="title-row mb-4 text-center">
-        <h2 class="mb-0">Vacantes</h2>
+        <h2 class="mb-0">Vacantes publicadas</h2>
     </div>
 
-    <!-- Lista de cards -->
+ 
 
     @if (isLoading) {
         <div class="text-center py-5">

@@ -1,36 +1,62 @@
-/* Contenedor principal: centrar, ancho limitado */
+
 .login-container {
-    max-width: 360px;
-    /* Ajusta al ancho deseado */
-    margin: 80px auto;
-    /* Centra vertical y horizontalmente */
-    padding: 20px;
-    text-align: left;
+    background-color: #fafbfd;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-/* Título */
-.login-container h2 {
-    font-size: 1.8rem;
+
+.login-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+
+.login-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem;
+    color: #3a6088;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Texto de registro */
+
+.login-form .form-label {
+    font-weight: 500;
+}
+
+.login-form .form-control {
+    border: 1px solid #e0e0e0;
+    border-radius: 0.25rem;
+}
+
+.btn-login {
+    background-color: #00796B;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-login:hover,
+.btn-login:focus {
+    background-color: #00675B;
+}
+
+
 .register-link {
     color: #6c63ff;
-    /* Un color púrpura aproximado */
-    cursor: pointer;
 }
 
 .register-link:hover {
     text-decoration: underline;
-}
-
-/* 
-   Ajustes adicionales para inputs en error usando clases de Bootstrap.
-   Manejamos el borde rojo cuando se aplique la clase .is-invalid
-*/
-.is-invalid {
-    border-color: #dc3545 !important;
 }
 
 .invalid-feedback {

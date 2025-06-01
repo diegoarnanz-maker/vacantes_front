@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="container my-5 perfil-empresa">
   <div class="title-row text-center mb-4">
     <h2 class="fw-bold">Modificar Datos de la Empresa</h2>
   </div>
@@ -12,20 +12,10 @@
   } @else if (errorMensaje) {
   <div class="alert alert-danger text-center">{{ errorMensaje }}</div>
   } @else {
-  <form
-    [formGroup]="form"
-    (ngSubmit)="onSubmit()"
-    class="card mx-auto p-4"
-    style="max-width: 500px"
-  >
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="card mx-auto p-4" style="max-width: 500px">
     <div class="mb-3">
       <label for="nombreEmpresa" class="form-label">Nombre Empresa</label>
-      <input
-        id="nombreEmpresa"
-        type="text"
-        class="form-control"
-        formControlName="nombreEmpresa"
-      />
+      <input id="nombreEmpresa" type="text" class="form-control" formControlName="nombreEmpresa" />
     </div>
 
     <div class="mb-3">
@@ -35,37 +25,19 @@
 
     <div class="mb-3">
       <label for="direccionFiscal" class="form-label">Dirección Fiscal</label>
-      <input
-        id="direccionFiscal"
-        type="text"
-        class="form-control"
-        formControlName="direccionFiscal"
-      />
+      <input id="direccionFiscal" type="text" class="form-control" formControlName="direccionFiscal" />
     </div>
 
     <div class="mb-3">
       <label for="pais" class="form-label">País</label>
-      <input
-        id="pais"
-        type="text"
-        class="form-control"
-        formControlName="pais"
-      />
+      <input id="pais" type="text" class="form-control" formControlName="pais" />
     </div>
 
     <div class="d-flex justify-content-center gap-3 mt-4">
-      <button
-        class="btn btn-primary btn-sm px-4"
-        type="submit"
-        [disabled]="form.invalid"
-      >
+      <button class="btn btn-edit btn-sm px-4" type="submit" [disabled]="form.invalid">
         Guardar Cambios
       </button>
-      <button
-        class="btn btn-secondary btn-sm px-4"
-        type="button"
-        (click)="onCancelar()"
-      >
+      <button class="btn btn-back btn-sm px-4" type="button" (click)="onCancelar()">
         Cancelar
       </button>
     </div>

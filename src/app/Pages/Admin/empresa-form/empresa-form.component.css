@@ -1,0 +1,115 @@
+.empresa-form {
+    background-color: #f2f5f9;
+    padding: 3rem 1rem;
+    min-height: 100vh;
+}
+
+
+.empresa-form .card {
+    background-color: #ffffff;
+    border: 1px solid #d9e1e8;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+
+.empresa-form h3.text-center {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #344054;
+    margin-bottom: 1.5rem;
+}
+
+
+.empresa-form .mb-4.border.rounded.p-3 {
+    border: 1px solid #d9e1e8;
+    border-radius: 4px;
+    background-color: #ffffff;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.empresa-form .form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #475467;
+    margin-bottom: 0.25rem;
+}
+
+.empresa-form .form-control {
+    width: 100%;
+    font-size: 0.875rem;
+    color: #1f2933;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 0.5rem;
+    line-height: 1.4;
+    box-sizing: border-box;
+}
+
+.empresa-form .form-control::placeholder {
+    color: #a3b7c4;
+}
+
+.empresa-form .form-control:disabled {
+    background-color: #f5f7fa;
+    color: #90a3b4;
+}
+
+
+.empresa-form .error {
+    color: #d92d20;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.empresa-form .form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+
+.empresa-form .btn-primary {
+    background-color: #013a72;
+    border-color: #003366;
+    color: #ffffff;
+    font-size: 0.875rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+}
+
+.empresa-form .btn-secondary {
+    background-color: #565c63;
+    border-color: #52585f;
+    color: #ffffff;
+    font-size: 0.875rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+}
+
+.empresa-form .btn-primary:hover,
+.empresa-form .btn-secondary:hover {
+    opacity: 0.9;
+}
+
+
+.empresa-form .text-center.m-4 .btn-outline-secondary {
+    background-color: #545454;
+    border: 2px solid #5b5b5b;
+    color: #fff;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.empresa-form .text-center.m-4 .btn-outline-secondary:hover,
+.empresa-form .text-center.m-4 .btn-outline-secondary:focus {
+    background-color: #7a7a7a;
+    border-color: #7a7a7a;
+}

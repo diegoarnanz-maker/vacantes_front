@@ -1,6 +1,5 @@
-<div class="vacante-detail container my-4">
-    <div class="card p-4 mx-auto vacante-card–compact">
-
+<div class="solicitud-form-public container my-4">
+    <div class="card p-4 mx-auto solicitud-form–compact">
         <!-- Cabecera: logo + empresa -->
         <div class="d-flex align-items-center mb-3 pt-3 ps-3">
             <div class="image-wrapper me-2">
@@ -16,7 +15,7 @@
         <!-- Título y categoría centrados -->
         <div class="text-center mb-3 pt-3 pb-3" id="titulo">
             <h2 class="h5 mb-0 fw-bold">{{ vacanteSelect.nombre }}</h2>
-            <div class="text-secondary small ">{{ vacanteSelect.nombreCategoria }}</div>
+            <div class="text-secondary small">{{ vacanteSelect.nombreCategoria }}</div>
         </div>
 
         <!-- Fecha centrada -->
@@ -24,29 +23,26 @@
             Fecha: {{ vacanteSelect.fecha }}
         </p>
 
-        <!-- Detalles -->
+        <!-- Detalles y descripción -->
         <div class="mb-2">
             <h6 class="small mb-1 fw-bold ps-3">Detalles:</h6>
             <p class="small mb-2 ps-3">{{ vacanteSelect.detalles }}</p>
         </div>
-
-        <!-- Descripción -->
         <div class="mb-2">
             <h6 class="small mb-1 fw-bold ps-3">Descripción:</h6>
             <p class="small mb-2 ps-3">{{ vacanteSelect.descripcion }}</p>
         </div>
 
-        <!-- Salario y estado -->
+        <!-- Salario -->
         <div class="mb-3 small ps-3">
-            <span><strong>Salario:</strong> {{ vacanteSelect.salario }}</span><br />
+            <strong>Salario:</strong> {{ vacanteSelect.salario }}
         </div>
 
         <!-- Formulario de nueva solicitud -->
-        <form [formGroup]="formSolicitud" (ngSubmit)="enviarSolicitud()">
+        <form [formGroup]="formSolicitud" (ngSubmit)="enviarSolicitud()" class="solicitud-form">
             <div class="mb-3 ps-3">
                 <label for="comentarios" class="form-label"><strong>Comentarios</strong></label>
-                <textarea id="comentarios"  class="form-control" rows="3" formControlName="comentarios">
-                </textarea>
+                <textarea id="comentarios" class="form-control" rows="3" formControlName="comentarios"></textarea>
                 @if(checkControl('comentarios','required')) {
                 <p class="error">No se puede dejar vacío</p>
                 }
@@ -60,8 +56,7 @@
 
             <div class="mb-3 ps-3">
                 <label for="curriculum" class="form-label"><strong>Currículum (URL)</strong></label>
-                <input type="url" id="curriculum"  class="form-control"  formControlName="curriculum"
-                />
+                <input type="url" id="curriculum" class="form-control" formControlName="curriculum" />
                 @if(checkControl('curriculum','required')) {
                 <p class="error">No se puede dejar vacío</p>
                 }
@@ -75,8 +70,7 @@
 
             <div class="mb-3 ps-3">
                 <label for="archivo" class="form-label"><strong>Archivo adjunto (URL)</strong></label>
-                <input type="url" id="archivo" formControlName="archivo" class="form-control" 
-                />
+                <input type="url" id="archivo" class="form-control" formControlName="archivo" />
                 @if(checkControl('archivo','required')) {
                 <p class="error">No se puede dejar vacío</p>
                 }
@@ -89,14 +83,13 @@
             </div>
 
             <div class="d-flex justify-content-center gap-2 pb-4">
-                <button type="button" class="btn btn-secondary btn-sm" [routerLink]="['/home']">
+                <button type="button" class="btn btn-back btn-sm" [routerLink]="['/home']">
                     Volver
                 </button>
-                <button type="submit" class="btn btn-primary btn-sm" [disabled]="formSolicitud.invalid">
+                <button type="submit" class="btn btn-edit btn-sm" [disabled]="formSolicitud.invalid">
                     Enviar solicitud
                 </button>
             </div>
         </form>
-
     </div>
 </div>

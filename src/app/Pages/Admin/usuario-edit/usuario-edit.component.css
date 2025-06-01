@@ -1,0 +1,98 @@
+/* Fondo general y espaciado */
+.usuario-edit {
+    background-color: #f2f5f9;
+    padding: 3rem 1rem;
+    min-height: 100vh;
+}
+
+/* Card principal */
+.usuario-edit .card {
+    background-color: #ffffff;
+    border: 1px solid #d9e1e8;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Título */
+.usuario-edit h3.text-center {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #344054;
+}
+
+/* Bloque de datos con borde y fondo limpio */
+.usuario-edit .border.rounded.p-3 {
+    border: 1px solid #d9e1e8;
+    border-radius: 4px;
+    background-color: #ffffff;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Labels */
+.usuario-edit .form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #475467;
+    margin-bottom: 0.25rem;
+}
+
+/* Inputs y select */
+.usuario-edit .form-control,
+.usuario-edit .form-select {
+    width: 100%;
+    font-size: 0.875rem;
+    color: #1f2933;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 0.5rem;
+    line-height: 1.4;
+    box-sizing: border-box;
+}
+
+.usuario-edit .form-control::placeholder {
+    color: #a3b7c4;
+}
+
+.usuario-edit .form-control:disabled {
+    background-color: #f5f7fa;
+    color: #90a3b4;
+}
+
+/* Feedback de validación */
+.usuario-edit .invalid-feedback {
+    color: #d92d20;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+/* Botones primario y secundario */
+.usuario-edit .btn-primary {
+    background-color: #013a72;
+    border-color: #003366;
+    color: #ffffff;
+    font-size: 0.875rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+}
+
+.usuario-edit .btn-secondary {
+    background-color: #565c63;
+    border-color: #52585f;
+    color: #ffffff;
+    font-size: 0.875rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+}
+
+.usuario-edit .btn-primary:hover,
+.usuario-edit .btn-secondary:hover {
+    opacity: 0.9;
+}

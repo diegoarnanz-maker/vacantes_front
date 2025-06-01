@@ -1,4 +1,4 @@
-/* Contenedor de acciones: búsqueda a la izda, publicar a la dcha */
+
 .header-row {
     display: flex;
     justify-content: space-between;
@@ -19,16 +19,40 @@
 
 .new-button {
     white-space: nowrap;
+    background-color: #00796B;
+    border: 1px solid #00796B;
+    color: #fff;
+    transition: background 0.2s, border-color 0.2s;
+}
+.new-button:hover,
+.new-button:focus {
+    background-color: #008a7a;
+    border-color: #017a6c;
+}
+.search-group button,
+.search-group .btn-send {
+    background-color: #013a72;
+    border: 1px solid #003366;
+    color: #fff;
+    transition: background 0.2s, border-color 0.2s;
 }
 
-/* Fila de título centrado */
+.search-group button:hover,
+.search-group button:focus,
+.search-group .btn-send:hover,
+.search-group .btn-send:focus {
+    background-color: #024b93;
+    border-color: #013365;
+}
+
 .title-row {
     text-align: center;
+    color: #333;
 }
 
 .title-row h2 {
     font-weight: 600;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 @media (max-width: 768px) {

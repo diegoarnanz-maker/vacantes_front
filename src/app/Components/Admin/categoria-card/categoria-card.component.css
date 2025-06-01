@@ -1,13 +1,10 @@
 .card-categoria {
-    
     min-height: 270px;
     width: 100%;
     max-width: 280px;
-    /* opcional: tope si no quieres que sea más ancha */
     margin: 0 auto;
-    /* centra dentro de la columna */
-    background-color: #f0f2f5;
-    border: 1px solid #c2c6cc;
+    background-color: #fff;
+    border: 1px solid #000;
     border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -27,7 +24,7 @@
 .card-categoria .card-title {
     margin-bottom: 0.25rem;
     font-size: 1.1rem;
-    color: #333;
+    color: #0b2764;
 }
 
 .card-categoria .card-subtitle {
@@ -37,11 +34,36 @@
 .card-categoria .card-text {
     font-size: 0.95rem;
     color: #555;
-/* si el texto es muy largo, que haga scroll */
     overflow: auto;
     margin: 0.5rem 0;
 }
 
 .btn-sm {
     min-width: 70px;
+}
+
+
+.btn-edit {
+    background-color: rgb(111, 168, 167);
+    border: none;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+.btn-edit:hover,
+.btn-edit:focus {
+    background-color: rgb(91, 136, 135);
+}
+
+
+.btn-delete {
+    background-color: #2a2a2a;
+    border: none;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+.btn-delete:hover,
+.btn-delete:focus {
+    background-color: #3b3b3b;
 }

@@ -1,0 +1,69 @@
+
+.empresa-detail .card {
+    border: 2px solid #01214f;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.empresa-detail .card-header {
+    background-color: #013a72;
+    border-bottom: 2px solid #01214f;
+    color: #fff;
+    padding: 0.75rem 1rem;
+}
+
+.empresa-detail .card-body {
+    background-color: #f8f9fa;
+    color: #171717;
+}
+
+
+.empresa-detail hr {
+    border-top: 1px solid #01214f;
+    opacity: 0.6;
+}
+
+.empresa-detail .card-title {
+    color: #013a72;
+    font-weight: 600;
+}
+
+
+.empresa-detail .list-group-item {
+    border: 1px solid #527595;
+    border-left: none;
+    border-right: none;
+    background-color: #ffffff;
+}
+
+
+.empresa-detail .card-footer {
+    background-color: #013a72;
+    border-top: 2px solid #01214f;
+}
+
+.empresa-detail .btn-outline-primary {
+    background-color: #ffffff;
+    border: 2px solid #01214f;
+    color: #171717;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.empresa-detail .btn-outline-primary:hover,
+.empresa-detail .btn-outline-primary:focus {
+    background-color: #f2f2f2;
+    border-color: #01214f;
+}
+
+.empresa-detail .btn-outline-danger {
+    background-color: #545454;
+    border: 2px solid #5b5b5b;
+    color: #fff;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.empresa-detail .btn-outline-danger:hover,
+.empresa-detail .btn-outline-danger:focus {
+    background-color: #a0a0a0;
+    border-color: #8a8a8a;
+}

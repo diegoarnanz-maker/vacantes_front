@@ -1,6 +1,4 @@
-/* categoria-form.component.css */
 
-/* Contenedor principal, centra vertical y horizontalmente */
 .form-wrapper {
     display: flex;
     flex-direction: column;
@@ -8,7 +6,7 @@
     padding: 2rem 1rem;
 }
 
-/* Título encima del form */
+
 .form-title {
     margin-bottom: 1.5rem;
     font-size: 1.75rem;
@@ -16,64 +14,56 @@
     color: #2c3e50;
 }
 
-/* Tarjeta que envuelve el formulario */
+
 .form-card {
     width: 320px;
     padding: 1.5rem;
     background-color: #e2e8f0;
     border: 1px solid #c2c6cc;
     border-radius: 4px;
+    margin-top: 30px;
 }
 
-/* Etiquetas de los campos */
+
 .form-label {
     font-weight: 600;
     color: #2c3e50;
 }
 
-/* Asegura que inputs y textarea llenen el ancho */
+
 .form-control {
     width: 100%;
 }
 
-/* Mensajes de error */
+
 .text-danger.small {
     font-size: 0.85rem;
 }
 
-/* Espaciado extra entre campo y error */
+
 .mb-3>.text-danger {
     margin-top: 0.25rem;
 }
 
-/* Botones */
+
 .btn-secondary {
     background-color: #4e5d6c;
     border-color: #4e5d6c;
 }
 
-.btn-secondary:hover {
-    background-color: #3b4753;
-    border-color: #3b4753;
-}
 
-/* Botón guardar en modo 'Modificar' */
 .btn-primary {
-    background-color: #6f42c1;
-    border-color: #6f42c1;
+    background-color: #013a72;
+    border-color: #003366;
 }
 
+.btn-secondary:hover,
 .btn-primary:hover {
-    background-color: #5931a6;
-    border-color: #5931a6;
+    opacity: 0.9;
 }
 
-/* Ajuste de colores en modo 'Crear' para btn-success (Publicar) */
-.btn-success {
-    /* usa los estilos por defecto de Bootstrap */
-}
 
-/* Separación entre botones */
+
 .d-flex.justify-content-between .btn {
     min-width: 100px;
 }
